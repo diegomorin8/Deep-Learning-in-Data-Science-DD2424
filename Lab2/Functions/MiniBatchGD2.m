@@ -1,0 +1,119 @@
+function [ Wstar, bstar, loss_train , loss_val] = MiniBatchGD2( X_train, ... 
+    Y_train, y_train, X_val, Y_val, GDparams, eta, W, b, lambda, X_test, y_test,...
+    std_noise )
+
+% MINIBATCHGD  Implementation of the mini-batch gradient descent algorithm
+%
+% [ Wstar, bstar, loss_train , loss_val] = MiniBatchGD(X_train, ... 
+%    Y_train, X_val, Y_val, GDparams, W, b, lambda, std_noise) performs the
+%    mini-batch SGD updating the model parameters W and b based on the cost
+%    computed on the training set X_train.
+%
+% Inputs:
+%   X_train: Each column of X corresponds to an image, it has size (dxN).
+%               Samples belong to train set.
+%   Y_train: One-hot ground truth label for the corresponding image vector 
+%           in X, it has size (KxN). Samples belong to train set.
+%   X_val: Each column of X corresponds to an image, it has size (dxN)
+%               Samples belong to validation set.
+%   Y_val: One-hot ground truth label for the corresponding image vector 
+%           in X, it has size (KxN). Samples belong to validation set.
+%   GDparams: Parameters of the training
+%   W: Weight matrix, it has size (Kxd)
+%   b: Bias vector, it has size (Kx1)
+%   lambda: Weight on the regularization term
+%   std_noise: Standard deviation of the noise added to the training images
+%
+% Outputs:
+%   Wstar: Optimal solution found for W, size (Kxd)
+%   bstar: Optimal solution found for b, size (Kx1)
+%   loss_train: Loss obtained on the training set
+%   loss_val: Loss obtained on the validation set
+
+
+% Obtain training parameters
+[~, N] = size(X_train);
+n_batch = GDparams.n_batch;
+%eta = GDparams.eta;
+n_epochs = GDparams.n_epochs;
+rho = GDparams.rho;
+decay_rate = GDparams.decay_rate;
+
+% Initialize loss on the training set
+loss_train = zeros(n_epochs+1,1);
+loss_train(1) = ComputeCost2( X_train, Y_train, W, b, lambda );
+fprintf('Cost = %d\n', loss_train(1));
+% Initialize loss on the validation set
+loss_val = zeros(n_epochs+1,1);
+loss_val(1) = ComputeCost2( X_val, Y_val, W, b, lambda );
+
+n_hidden = numel(W);
+
+% Define and initialize momentum cell
+v = cell(2, n_hidden);
+for k = 1:n_hidden
+    v{1, k} = 0;
+    v{2, k} = 0;
+end
+
+% Iterate for each epoch
+for epoch=1:n_epochs
+    
+    % For each batch of data
+    for j=1:N/n_batch
+        
+        % Obtain batch
+        j_start = (j-1)*n_batch + 1;
+        j_end = j*n_batch;
+        inds = j_start:j_end;
+        Xbatch = X_train(:, inds);
+        Ybatch = Y_train(:, inds);
+
+        % Forward pass
+        [P, S, H] = EvaluateClassifier2( Xbatch, W, b );
+        
+        % Backward pass
+        [db, dW] = ComputeGradients3( Xbatch, Ybatch, P, S, H, W, lambda );
+
+        % Update network parameters
+        for k = 1:n_hidden
+            % Momentum update
+            v{1, k} = rho * v{1, k} + eta * db{k};
+            v{2, k} = rho * v{2, k} + eta * dW{k};
+            % Gradient update
+            b{k} = b{k} - v{1, k};
+            W{k} = W{k} - v{2, k};
+        end
+        
+    end
+
+    % Decrease learning rate
+    eta = decay_rate*eta;
+    
+    % Obtain loss for training set
+    loss_train(epoch+1) = ComputeCost2( X_train, Y_train, W, b, lambda );
+    % Check if the GD produces a stable update
+%     if loss_train(epoch+1) >= 3*loss_train(1) || isnan(loss_train(epoch+1))
+%         fprintf('Unstable! You might want to decrease the learning rate\n');
+%         break;
+%     end
+    fprintf('%.d) Cost = %d\n', epoch, loss_train(epoch+1));
+    
+    % Obtain loss for validation set
+    loss_val(epoch+1) = ComputeCost2( X_val, Y_val, W, b, lambda );
+
+    % Obtain accuracy in test set
+    acc = ComputeAccuracy2( X_test, y_test, W, b );
+    fprintf('%.d) Accuracy = %.2f \n', epoch, acc*100);
+
+    if acc == 1
+        fprintf('It took %d epochs to reach perfection! \n', epoch);
+        break;
+    end
+end
+
+% Output results
+Wstar = W;
+bstar = b;
+
+end

@@ -1,0 +1,70 @@
+function [Wstar, bstar, val_loss, train_loss] = MiniBatchGD(X, Y, X_val, Y_val, GDparams, W, b, lambda)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% where
+%   - X: contains all the training images
+%   - Y: the labels for the training images
+%   - W, b: are the initial values for the network’s parameters
+%   - lambda: is the regularization factor in the cost function 
+%   - GDparams: is an object containing the parameter values n batch, eta
+%               and n epochs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Obtain training parameters
+
+% Number of images in the data set
+N = size(X,2);
+
+% Size of mini batches
+n_batch = GDparams.n_batch;
+
+% Learning rate
+eta = GDparams.eta;
+
+% Number of epochs
+n_epochs = GDparams.n_epochs;
+
+% Training set initialization 
+train_loss = zeros(n_epochs+1,1);
+train_loss(1) = ComputeCost( X, Y, W, b, lambda );
+
+% Training set initialization 
+val_loss = zeros(n_epochs+1,1);
+val_loss(1) = ComputeCost( X_val, Y_val, W, b, lambda );
+    
+for epoch=1:n_epochs
+    % Prepare each batch. Code given in the lecture notes
+    for j=1:N/n_batch
+        
+        % Mini batch
+        j_start = (j-1)*n_batch + 1;
+        j_end = j*n_batch;
+        inds = j_start:j_end;
+        Xbatch = X(:, inds);
+        Ybatch = Y(:, inds);
+        
+        % Forward pass
+        P = EvaluateClassifier( Xbatch, W, b );
+
+        % Backward pass
+        [gradW, gradb] = ComputeGradients( Xbatch, Ybatch, P, W, lambda );
+
+        % Update network parameters as in the lecture notes
+        W = W - eta*gradW;
+        b = b - eta*graddb;
+        
+    end
+    % Obtain loss for training and validation sets
+    train_loss(epoch+1)=ComputeCost( X, Y, W, b, lambda );
+    val_loss(epoch+1) = ComputeCost( X_val, Y_val, W, b, lambda );
+    
+    % Decrease learning rate
+    %eta = 0.99*eta;
+    % eta = eta*exp(-0.001*epoch);
+end
+
+% Output results
+Wstar = W;
+bstar = b;
+
+end

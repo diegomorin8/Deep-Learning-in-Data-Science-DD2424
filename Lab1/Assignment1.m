@@ -1,0 +1,345 @@
+%% Assignment 1 
+%
+%% Introduction
+%
+% In this assignment a one layer network with multiple outputs will be
+% trained to classify images from the dataset CIFAR-10. The network will be
+% trained using minibatch gradient descent applied to a cost function that
+% computes the cross-entropy loss of the classifier applied to the labelled
+% training data and an L2 regularization term on the weight matrix.
+%
+% All the developed code will be implemented in this script, being
+% separatedly in subsection that can be runned separately to see better the
+% perfomance of the code.  
+
+%% 1. Implementation
+%
+% The first step is to prepare the workspace
+
+%Prepare the workspace
+close all;
+% clear all;
+clc;
+
+%%
+%
+% Check the functionality of montage.m function and show some dataset's
+% images examples
+
+A = load('test_batch.mat');
+I = reshape(A.data', 32, 32, 3, 10000);
+I = permute(I, [2, 1, 3, 4]);
+montage(I(:, :, :, 1:500), 'Size', [10,10]);
+
+%% 1.1 Load the data
+% 
+% We will use the images in data_batch_1.mat as the training data. However
+% this data has to be modified and adapted to our requirements. This is
+% done by the function LoadBatch. This function loads the data we need, and
+% outputs 3 parameters: 
+%   - X: contains the image pixel data, has size dxN, is of type double or
+%     single and has entries between 0 and 1. N is the number of images
+%     (10000) and d the dimensionality of each image (3072=32×32×3).
+%   - Y: is K×N (K= # of labels = 10) and contains the one-hot representation
+%     of the label for each image.
+%   - N: is a vector of length N containing the label for each image. A note
+%     of caution. CIFAR-10 encodes the labels as integers between 0-9 but
+%     Matlab indexes matrices and vectors starting at 1. Therefore it may be
+%     easier to encode the labels between 1-10.
+
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+
+%%
+%
+% Now that this function works, we load also the test and validation data.
+
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%% 1.2 Weight matrix initialization
+%
+% We have now enough data to initialize the weight matrix. 
+%
+rng(20)
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+d = size(X_batch,1);
+K = size(Y_batch,1);
+
+% Each value of the matrix is initialize to have Gaussian random values 
+% with zero mean and standard deviation .01
+stdD = .01;
+W = stdD*randn(K, d);
+b = stdD*randn(K, 1);
+
+%% 1.3 Data classification
+%
+% In this part, applying a forward pass, we compute the label probailities
+% for each image in the training data. We are going to check this function
+% with part of the training data given. 
+
+% The size of this probability matrix is LabelsxNumber, expressing the
+% columns the probabilities for each image.
+
+P = EvaluateClassifier(X_batch, W, b);
+
+%% 1.4 Cost computation
+%
+% The next step is to build the function that it in change of the
+% computation of the cost. 
+%
+% This function is
+
+%Learning rate
+lambda = 1;
+
+% Cost function
+J = ComputeCost(X_batch, Y_batch, W, b, lambda);
+
+%% 1.5 Compute accuracy
+%
+% We now have to build a function that calculates the accuracy of the
+% network. It is as simple as calculate the percentage of good guesses from
+% the total 
+
+acc = ComputeAccuracy(X_batch, y_batch, W, b);
+
+%%
+%
+% As expected, the accuaracy is very low as the network has not been
+% trained, only randomly initialized. 
+
+%% 1.6 Compute Gradients
+%
+% It is time now to write the function that evaluates, for a mini-batch, the 
+% gradients of the cost function w.r.t. W and b. it is importanto to always 
+% check the analytic gradient computations against numerical estimations of 
+% the gradients. 
+
+% Initially, you should just perform your checks on mini-batches of size 1 
+% and with no regularization (lambda = 0), using a reduced dimensionality
+% version of train X and W
+
+lambda = 0; 
+error_W = [];
+error_b = [];
+
+X_train = X_batch(1:100,:);
+Wt = W(:,1:100);
+%%
+% As we are going to use different mini batches to check the performance,
+% we want a loop. 
+for i = 1:100
+    % Numerical batch
+    [ngrad_b, ngrad_W] = ComputeGradsNumSlow(X_train(:,i), Y_batch(:,i), Wt, b, lambda, 1e-6);
+    
+    % We need P
+    P = EvaluateClassifier( X_train(:,i),Wt, b );
+    % Analytical batch
+    [grad_W, grad_b] = ComputeGradients(X_train(:,i), Y_batch(:,i), P, Wt,lambda);
+    
+    % Calculate the error according to the lab notes
+    error_W(i) = norm(grad_W - ngrad_W)/(norm(grad_W) + norm(ngrad_W));
+    error_b(i) = norm(grad_b - ngrad_b)/(norm(grad_b) + norm(ngrad_b));
+    
+    % The error has to be small enough
+    if error_W(i) >= 1e-6
+        disp(' Error in W gradient calculation ')
+        break;
+    elseif error_b(i) >= 1e-6
+        disp(' Error in b gradient calculation ')
+        break;
+    end
+end
+
+%% 
+%
+% We can see that the error is small enough
+close all;
+figure
+plot(error_W)
+hold on
+plot(error_b)
+hold off
+
+%%
+%
+% We can check now if for lambda = 1 errors are still small enough
+
+lambda = 1; 
+error_W = [];
+error_b = [];
+% As we are going to use different mini batches to check the performance,
+% we want a loop. 
+for i = 1:100
+    % Numerical batch
+    [ngrad_b, ngrad_W] = ComputeGradsNumSlow(X_batch(1:100,i), Y_batch(:,i), W(:,1:100), b, lambda, 1e-6);
+    
+    % We need P
+    P = EvaluateClassifier( X_batch(1:100,i),W(:,1:100), b );
+    % Analytical batch
+    [grad_W, grad_b] = ComputeGradients(X_batch(1:100,i), Y_batch(:,i), P, W(:,1:100),lambda);
+    
+    % Calculate the error according to the lab notes
+    error_W(i) = norm(grad_W - ngrad_W)/(norm(grad_W) + norm(ngrad_W));
+    error_b(i) = norm(grad_b - ngrad_b)/(norm(grad_b) + norm(ngrad_b));
+    
+    % The error has to be small enough
+    if error_W(i) >= 1e-6
+        disp(' Error in W gradient calculation ')
+        break;
+    elseif error_b(i) >= 1e-6
+        disp(' Error in b gradient calculation ')
+        break;
+    end
+end
+
+%% 
+%
+% We can see that the error is small enough
+close all;
+figure
+plot(error_W)
+hold on
+plot(error_b)
+hold off
+
+%%
+%
+% We can check now if for lambda = 1 and bigger batch sizes the errors are still small enough
+
+lambda = 1; 
+error_W = [];
+error_b = [];
+% As we are going to use different mini batches to check the performance,
+% we want a loop. 
+for i = 1:100
+    
+    batch = (1 + 100*(i-1)):(100*i);
+    % Numerical batch
+    [ngrad_b, ngrad_W] = ComputeGradsNumSlow(X_batch(1:100,batch), Y_batch(:,batch), W(:,1:100), b, lambda, 1e-6);
+    
+    % We need P
+    P = EvaluateClassifier( X_batch(1:100,batch),W(:,1:100), b );
+    % Analytical batch
+    [grad_W, grad_b] = ComputeGradients(X_batch(1:100,batch), Y_batch(:,batch), P, W(:,1:100),lambda);
+    
+    % Calculate the error according to the lab notes
+    error_W(i) = norm(grad_W - ngrad_W)/(norm(grad_W) + norm(ngrad_W));
+    error_b(i) = norm(grad_b - ngrad_b)/(norm(grad_b) + norm(ngrad_b));
+    
+    % The error has to be small enough
+    if error_W(i) >= 1e-6
+        disp(' Error in W gradient calculation ')
+        break;
+    elseif error_b(i) >= 1e-6
+        disp(' Error in b gradient calculation ')
+        break;
+    end
+end
+
+%% 
+%
+% We can see that the error is small enough
+close all;
+figure
+plot(error_W)
+hold on
+plot(error_b)
+hold off
+
+%%
+%
+% We can see that the performance of the gradient is good enoughm as the
+% relative error between the numerical gradient calculation and the
+% analytic one is small enough. We can then proceed to the next steps of
+% the implementation. 
+
+%% 2. Mini batch gradient descent algprithm
+%
+% The main objetive is to train the network to classified 10 objects from
+% the pictures in the data set CIFAR-10 using the Mini Batch Gradient
+% Descent Algorithm. The implementation is going to be simplified being the
+% only parameters that can be tuned the following ones: 
+%   - n_batch: the size of the mini-batches
+%   - eta: the learning rate
+%   - n_epochs the number of runs through the whole training set.
+
+%% 2.1 Prepare workspace
+%
+% We want to clean the work space to start the experiments again
+
+clc;
+clear all;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%% 2.2 Weight matrix initialization
+%
+% We are using the random seed number 400 so we can get the same results as
+% in the lecture notes
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+d = size(X_batch,1);
+K = size(Y_batch,1);
+
+% Each value of the matrix is initialize to have Gaussian random values 
+% with zero mean and standard deviation 1
+stdD = 0.01;
+W = stdD*randn(K, d);
+b = stdD*randn(K, 1);
+
+%% 2.3 Parameters setting
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.01;
+GDparams.n_epochs = 40;
+lambda = 0;
+
+%% 2.4 Mini batch gradient descent algorithm
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later.
+[Wstar, bstar, val_loss, train_loss] = MiniBatchGD(X_batch, Y_batch, X_val, Y_val, GDparams, W, b, lambda, 2);
+
+%% 2.5 Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc = ComputeAccuracy(X_test, y_test, Wstar, bstar);
+
+%% 2.6 Plotting training results
+%
+% We want to visualize the results of the trining. First we are plotting
+% the training and validation loss for each epoch. 
+
+figure; 
+plot(val_loss);
+hold on
+plot(train_loss);
+legend('Validation data', 'Training data')
+hold off
+
+% Now we want to visualize the weights as images
+%
+% Using this piece of code given in the lab notes
+for i=1:10
+    im = reshape(Wstar(i, :), 32, 32, 3);
+    s_im{i} = (im - min(im(:))) / (max(im(:)) - min(im(:)));
+    s_im{i} = permute(s_im{i}, [2, 1, 3]);
+end
+
+figure;
+for i = 1:10
+    subplot(2,5,i)
+    imagesc(s_im{i})
+    axis square
+    colormap jet
+end

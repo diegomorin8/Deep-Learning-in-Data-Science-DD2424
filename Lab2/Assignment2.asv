@@ -1,0 +1,1009 @@
+%% Assignment 2 
+%
+%% Introduction
+%
+% In this assignment a two layer network with multiple outputs will be
+% trained to classify images from the dataset CIFAR-10. The network will be
+% trained using minibatch gradient descent applied to a cost function that
+% computes the cross-entropy loss of the classifier applied to the labelled
+% training data and an L2 regularization term on the weight matrix.
+%
+% All the developed code will be implemented in this script, being
+% separatedly in subsection that can be runned separately to see better the
+% perfomance of the code.  
+
+%% 1. Implementation
+%
+% The first step is to prepare the workspace
+
+%Prepare the workspace
+close all;
+clear all;
+clc;
+
+%% 1.1 Load the data
+% 
+% We will use the images in data_batch_1.mat as the training data. However
+% this data has to be modified and adapted to our requirements. This is
+% done by the function LoadBatch. This function loads the data we need, and
+% outputs 3 parameters: 
+%   - X: contains the image pixel data, has size dxN, is of type double or
+%     single and has entries between 0 and 1. N is the number of images
+%     (10000) and d the dimensionality of each image (3072=32×32×3).
+%   - Y: is K×N (K= # of labels = 10) and contains the one-hot representation
+%     of the label for each image.
+%   - N: is a vector of length N containing the label for each image. A note
+%     of caution. CIFAR-10 encodes the labels as integers between 0-9 but
+%     Matlab indexes matrices and vectors starting at 1. Therefore it may be
+%     easier to encode the labels between 1-10.
+
+[X_batch, Y_batch, y_batch] = LoadBatch2('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch2('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch2('test_batch.mat');
+
+[X_batch2, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%% Pre - processing
+% mean_ = mean(X_batch, 2);
+% X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+% X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+% X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+mu = mean(X_batch, 2);
+X_batch = bsxfun(@minus, X_batch, mu);
+X_val = bsxfun(@minus, X_val, mu);
+X_test = bsxfun(@minus, X_test, mu);
+
+%% 1.2 Weight matrix initialization
+%
+% We have now enough data to initialize the weight matrix. 
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+W{1} = Weights{1,1};
+W{2} = Weights{2,1};
+
+b{1} = Weights{1,2};
+b{2} = Weights{2,2};
+%% 1.3 Data classification
+%
+% In this part, applying a forward pass, we compute the label probailities
+% for each image in the training data. We are going to check this function
+% with part of the training data given. 
+
+% The size of this probability matrix is LabelsxNumber, expressing the
+% columns the probabilities for each image.
+
+[P, hiddenEmissions, sHidden] = EvaluateClassifier(X_batch, Weights);
+[P2, S, H] = EvaluateClassifier2(X_batch, W, b);
+%% 1.4 Cost computation
+%
+% The next step is to build the function that it in change of the
+% computation of the cost. 
+%
+% This function is
+
+%Regularization term
+lambda = 1;
+
+% Cost function
+J = ComputeCost(X_batch, Y_batch, Weights, lambda);
+
+%% 1.5 Compute accuracy
+%
+% We now have to build a function that calculates the accuracy of the
+% network. It is as simple as calculate the percentage of good guesses from
+% the total 
+
+acc = ComputeAccuracy(X_batch, y_batch, Weights);
+
+%%
+%
+% As expected, the accuaracy is very low as the network has not been
+% trained, only randomly initialized. 
+
+%% 1.6 Compute Gradients
+%
+% It is time now to write the function that evaluates, for a mini-batch, the 
+% gradients of the cost function w.r.t. W and b. it is importanto to always 
+% check the analytic gradient computations against numerical estimations of 
+% the gradients. However, the numerical calculation is way to slow, due to
+% this, we are not going to do this comprobations.
+%
+% What we are going to do, it train our network on a small amount of the 
+% training data (say 100 examples) with regularization turned off (lambda=0)
+% and check if we can overfit to the training data and get a very low loss on
+% the training data after training for a sufficient number of epochs (?200) 
+% and with a reasonable ?. Being able to achieve this indicates that your gradient 
+% computations and mini-batch gradient descent algorithm are okay.
+
+%% Check performance of gradient descent -  Prepare workspace
+%
+% We want to clean the work space to start the experiments again
+
+clc;
+clear all;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%% Check performance of gradient descent -  Pre - processing
+% 
+% Substract the mean
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+
+%% Check performance of gradient descent - Network init
+%
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+%% Check performance of gradient descent -  Parameter setting
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.35;
+GDparams.n_epochs = 200;
+lambda = 0;
+
+%% Check performance of gradient descent - Mini batch gradient descent algorithm
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later. We are using just a small subset of the dataset
+
+[Wstar, val_loss, train_loss] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2);
+
+%% Check performance of gradient descent - Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc = ComputeAccuracy(X_test, y_test, Wstar)
+
+% That of course, is really low. 
+
+%% 
+
+lambda = 0; 
+error_W = [];
+error_b = [];
+
+num_checks = 100; 
+X_train = X_batch(1:num_checks,:);
+Y_train = Y_batch;
+
+Weights_train = Weights;
+Weights_train{1,1} = Weights{1,1}(:,1:num_checks);
+
+W{1} = Weights{1,1}(:,1:num_checks);
+W{2} = Weights{2,1};
+
+b{1} = Weights{1,2};
+b{2} = Weights{2,2};
+
+% Number of features (input layer)
+[d, ~] = size(X_train);
+% Number of neurons in the hidden layer (SET TO 750 for best result,
+% spoiler alert: IT IS VERY SLOW)
+m = 50;%750;%500;
+% Number of classes (output layer)
+[K, ~] = size(Y_train);
+% Network structure
+neuron_layer = [d, m, K];
+n = size(X_train,2);
+[W, b] = initParams(neuron_layer, n);
+
+% We need P
+[P2, S, H] = EvaluateClassifier2(X_train(:,2), W, b);
+
+% We need P
+[P, h, s] = EvaluateClassifier(X_train(:,2), Weights_train);
+% Analytical batch
+[grads1] = ComputeGradients2(X_train(:,2), Y_train(:,2), P2, S, H, W, lambda);
+% Analytical batch
+[grads2] = ComputeGradients(X_train(:,2), Y_train(:,2), P2, Weights_train, h, s , lambda);
+
+[ J ] = ComputeCost2( X_train(:,2), Y_train(:,2), W, b, lambda )
+[ J2 ] = ComputeCost(X_train(:,2), Y_train(:,2), Weights_train, lambda )
+
+[ngrad] = ComputeGradsNumSlow2(X_train(:,i), Y_train(:,i), W, b, lambda, 1e-5);
+[ngrad2] = ComputeGradsNumSlow(X_train(:,i), Y_train(:,i), Weights_train, lambda, 1e-5);
+%%
+
+% Number of features (input layer)
+[d, ~] = size(X_batch);
+% Number of neurons in the hidden layer (SET TO 750 for best result,
+% spoiler alert: IT IS VERY SLOW)
+m = 50;%750;%500;
+% Number of classes (output layer)
+[K, ~] = size(Y_batch);
+% Network structure
+neuron_layer = [d, m, K];
+n = size(X_batch,2);
+[W, b] = initParams(neuron_layer, n);
+% Initialize learning parameters
+GDparams.n_batch = 100;%500;
+eta = 8.548e-3;
+GDparams.n_epochs = 10;
+GDparams.rho = 0.95; % 0.9
+GDparams.decay_rate = 0.95; %.99;
+% Regularization term
+lambda = 1.558e-5;%1e-4;%9e-5;%1.558e-5; 
+% Noise added in training data
+std_noise = 0;%sqrt(2/(100*n_samples));
+
+% Run Mini-batch SGD algorithm
+[ Wstar, bstar, loss_train , loss_val] = MiniBatchGD2( ...
+    X_batch, Y_batch, y_batch, X_val, Y_val, GDparams, eta, W, b, ...
+    lambda, X_test, y_test, std_noise );
+
+% Obtain accuracy on test data
+acc = ComputeAccuracy( X_test, y_test, Wstar, bstar );
+%%
+% As we are going to use different mini batches to check the performance,
+% we want a loop. 
+for i = 1:100
+    i
+    % Numerical batch
+    [ngrad] = ComputeGradsNumSlow2(X_train(:,i), Y_train(:,i), W, b, lambda, 1e-5);
+    
+    % We need P
+    [P2, S, H] = EvaluateClassifier2(X_train(:,i), W, b);
+    % Analytical batch
+    [grads] = ComputeGradients2(X_train(:,i), Y_train(:,i), P2, S, H, W, lambda);
+    
+    % Calculate the error according to the lab notes
+    error_W(i) = norm(grads{1,1} - ngrad{1,1})/(norm(grads{1,1}) + norm(ngrad{1,1}));
+    error_b(i) = norm(grads{1,2} - ngrad{1,2})/(norm(grads{1,2}) + norm(ngrad{1,2}));
+    
+    % The error has to be small enough
+    if error_W(i) >= 1e-6
+        disp(' Error in W gradient calculation ')
+        break;
+    elseif error_b(i) >= 1e-6
+        disp(' Error in b gradient calculation ')
+        break;
+    end
+end
+
+%% Check performance of gradient descent - Plotting training results
+%
+% We want to visualize the results of the trining. First we are plotting
+% the training and validation loss for each epoch. 
+
+figure; 
+plot(val_loss);
+hold on
+plot(train_loss);
+legend('Validation data', 'Training data')
+hold off
+
+% We can observe that we get overfitting quite quick, as the validation
+% loss increases notably after a some epochs and the training loss evolves
+% towards cero.
+
+%% 2.7 Add momentun to the update step
+%
+% We are going now to add momentum terms into the mini-batch update step in
+% order to speed up training times. We are going to do the same check as
+% with the gradients, we are going to try and overfit the network with an
+% small amount of training data. We will set the rho values to different
+% values in {0.5,0.9, 0.99} and check that the netwrok can still learn and
+% faster. We will also experiment with the learning decay, and check the
+% performance. 
+
+%% 2.7.1 No rho - No decay
+% 
+% % We want to clean the work space to start the experiments again
+
+clc;
+clear all;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%%
+% 
+% Substract the mean
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+
+%%
+%
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+%%
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.35;
+GDparams.n_epochs = 200;
+lambda = 0;
+
+%%
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later. We are using just a small subset of the dataset
+tic
+[Wstar, val_loss_noM, train_loss_noM] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2);
+time_noM = toc;
+%% Check performance of gradient descent - Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc_noM = ComputeAccuracy(X_test, y_test, Wstar)
+
+% That of course, is really low. 
+
+%% 2.7.2 Rho = 0.5 - No decay
+% 
+% % We want to clean the work space to start the experiments again
+
+clc;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%%
+% 
+% Substract the mean
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+
+%%
+%
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+%%
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.35;
+GDparams.n_epochs = 200;
+rho = 0.5;
+eta_decay = 1;
+lambda = 0;
+
+%%
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later. We are using just a small subset of the dataset
+tic
+[Wstar, val_loss_rho5, train_loss_rho5] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+time_rho5 = toc;
+%% Check performance of gradient descent - Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc_rho5 = ComputeAccuracy(X_test, y_test, Wstar)
+
+% That of course, is really low. 
+
+%% 2.7.3 Rho = 0.9 - No decay
+% 
+% % We want to clean the work space to start the experiments again
+
+clc;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%%
+% 
+% Substract the mean
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+
+%%
+%
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+%%
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.35;
+GDparams.n_epochs = 200;
+rho = 0.95;
+eta_decay = 1;
+lambda = 0;
+
+%%
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later. We are using just a small subset of the dataset
+tic
+[Wstar, val_loss_rho95, train_loss_rho95] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+time_rho95 = toc;
+%% Check performance of gradient descent - Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc_rho95 = ComputeAccuracy(X_test, y_test, Wstar)
+
+% That of course, is really low. 
+
+
+%% 2.7.4 Rho = 0.99 - No decay
+% 
+% % We want to clean the work space to start the experiments again
+
+clc;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%%
+% 
+% Substract the mean
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+
+%%
+%
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+%%
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.35;
+GDparams.n_epochs = 200;
+rho = 0.99;
+eta_decay = 1;
+lambda = 0;
+
+%%
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later. We are using just a small subset of the dataset
+tic
+[Wstar, val_loss_rho99, train_loss_rho99] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+time_rho99 = toc;
+%% Check performance of gradient descent - Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc_rho99 = ComputeAccuracy(X_test, y_test, Wstar)
+
+% That of course, is really low. 
+
+%% 2.7.5 Rho = 0.5 - Decay 0.95
+% 
+% % We want to clean the work space to start the experiments again
+
+clc;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%%
+% 
+% Substract the mean
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+
+%%
+%
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+%%
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.35;
+GDparams.n_epochs = 200;
+rho = 0.5;
+eta_decay = 0.95;
+lambda = 0;
+
+%%
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later. We are using just a small subset of the dataset
+tic
+[Wstar, val_loss_rho5Dec train_loss_rho5Dec] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+time_rho5Dec = toc;
+%% Check performance of gradient descent - Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc_rho5Dec = ComputeAccuracy(X_test, y_test, Wstar)
+
+% That of course, is really low. 
+
+%% 2.7.6 Rho = 0.9 - Decay = 0.95
+% 
+% % We want to clean the work space to start the experiments again
+
+clc;
+close all; 
+
+% Load the data again
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%%
+% 
+% Substract the mean
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+
+%%
+%
+% We set the random seed so we always get the same values
+rng(400)
+
+% The weight matrix has dimension Kxd where K is the number of labels and d
+% is the number of dimensions (RGB pixels) of each image. 
+DataDim = size(X_batch,1);
+NumLabels = size(Y_batch,1);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Intialize
+[Weights, Momentum] = network_init(DataDim, NumLabels, HIDDEN_NODES);
+
+%%
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+GDparams.n_batch = 100;
+GDparams.eta = 0.35;
+GDparams.n_epochs = 200;
+rho = 0.95;
+eta_decay = 0.95;
+lambda = 0;
+
+%%
+%
+% The main algorithm is applied. We need to output the costs and loss to
+% plot them later. We are using just a small subset of the dataset
+tic
+[Wstar, val_loss_rho95Dec, train_loss_rho95Dec] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+time_rho95Dec = toc;
+%% Check performance of gradient descent - Accuracy test
+%
+% Using the test data, we want to check the performance of our netwoek
+acc_rho95Dec = ComputeAccuracy(X_test, y_test, Wstar)
+
+% That of course, is really low. 
+
+%% 2.7.7 Results Comparison
+
+% We want to visualize the results of the trining. First we are plotting
+% the training and validation loss for each epoch. 
+
+figure; 
+subplot(3,2,1)
+plot(val_loss_noM);
+hold on
+plot(train_loss_noM);
+axis([0 200 0 4])
+legend('Validation data', 'Training data')
+title(sprintf(' Validation - Trining loss - eta = %g - rho = %g - decay = %g - time = %g', GDparams.eta, 0, 1, time_noM))
+hold off
+subplot(3,2,2)
+plot(val_loss_rho5);
+hold on
+plot(train_loss_rho5);
+axis([0 200 0 4])
+legend('Validation data', 'Training data')
+title(sprintf(' Validation - Trining loss - eta = %g - rho = %g - decay = %g - time = %g', GDparams.eta, 0.5, 1, time_rho5))
+hold off
+subplot(3,2,3)
+plot(val_loss_rho95);
+hold on
+plot(train_loss_rho95);
+axis([0 200 0 4])
+legend('Validation data', 'Training data')
+title(sprintf(' Validation - Trining loss - eta = %g - rho = %g - decay = %g - time = %g', GDparams.eta, 0.95, 1, time_rho95))
+hold off
+subplot(3,2,4)
+plot(val_loss_rho99);
+hold on
+plot(train_loss_rho99);
+axis([0 200 0 4])
+legend('Validation data', 'Training data')
+title(sprintf(' Validation - Trining loss - eta = %g - rho = %g - decay = %g - time = %g', GDparams.eta, 0.95, 1, time_rho95))
+hold off
+subplot(3,2,5)
+plot(val_loss_rho5Dec);
+hold on
+plot(train_loss_rho5Dec);
+axis([0 200 0 4])
+legend('Validation data', 'Training data')
+title(sprintf(' Validation - Trining loss - eta = %g - rho = %g - decay = %g - time = %g', GDparams.eta, 0.5, 0.95, time_rho5Dec))
+hold off
+subplot(3,2,6)
+plot(val_loss_rho95Dec);
+hold on
+plot(train_loss_rho95Dec);
+axis([0 200 0 4])
+legend('Validation data', 'Training data')
+title(sprintf(' Validation - Trining loss - eta = %g - rho = %g - decay = %g - time = %g', GDparams.eta, 0.95, 0.95, time_rho95Dec))
+hold off
+
+
+%% 3. Trainning the network
+%
+% Training a networks start by finding the optimal combinations of learning
+% parametrs. The first step is to find the range of effective values for
+% the learning rate. Later, we have to perform a coarse to fine random
+% searches (in tandem). We are going to use a rho of 9. 
+
+%% 3.1 Reasonable range of values for the learning rate
+%
+% Steps: 
+%   1. Set the regularization term to a small value (say .000001.)
+
+%   2. Randomly initalized the network. It should perform similarly to a random
+%      guesser and thus the training loss before you start learning should 
+%      be ?2.3 (? ln(.1)). 
+
+% We want to clean the work space to start the experiments again
+
+clc;
+clear all;
+close all; 
+
+lambda = 0.000001;
+
+%%% Load the data
+% 
+% We will use the images in data_batch_1.mat as the training data. However
+% this data has to be modified and adapted to our requirements. This is
+% done by the function LoadBatch. This function loads the data we need, and
+% outputs 3 parameters: 
+%   - X: contains the image pixel data, has size dxN, is of type double or
+%     single and has entries between 0 and 1. N is the number of images
+%     (10000) and d the dimensionality of each image (3072=32×32×3).
+%   - Y: is K×N (K= # of labels = 10) and contains the one-hot representation
+%     of the label for each image.
+%   - N: is a vector of length N containing the label for each image. A note
+%     of caution. CIFAR-10 encodes the labels as integers between 0-9 but
+%     Matlab indexes matrices and vectors starting at 1. Therefore it may be
+%     easier to encode the labels between 1-10.
+
+[X_batch, Y_batch, y_batch] = LoadBatch('data_batch_1.mat');
+[X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+[X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+
+%% Pre - processing
+
+mean_ = mean(X_batch, 2);
+X_batch = X_batch - repmat(mean_, [1, size(X_batch, 2)]);
+X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+
+%% Weights initialization
+
+error_W = [];
+error_b = [];
+
+num_checks = 100; 
+
+% Number of features 
+[DataDim, ~] = size(X_batch);
+
+% Number of nodes in the hidden layer
+HIDDEN_NODES = 50;
+
+% Number of labels
+[NumLabels, ~] = size(Y_batch);
+
+% Size of the data set used in Xavier's initialization
+SizeDataSet = size(X_batch,2);
+
+% Weight and bias initialization
+[W, b, mW, mb] = network_init(DataDim, NumLabels, HIDDEN_NODES, SizeDataSet);
+
+%%
+%
+% The parameters that we can set are chosen accordingly to the lecture
+% notes
+
+% Cost function
+J = ComputeCost(X_batch, Y_batch, W, b, lambda);
+
+%% 
+%
+%   3. You want to perform a quick search by hand to find the rough bounds 
+%      for reasonable values of the learning rate. During this stage you 
+%      should print out the training cost/lost after every epoch. If the 
+%      learning rate is too small, then after each epoch you will find 
+%      that the training loss barely changes. While if the learning rate is 
+%      too large, then learning is unstable and you will probably get 
+%      NaNs and/or very high loss values. You should only need ?5 epochs to
+%      check these properties.
+
+
+% The parameters are
+GDparams.n_batch = 100;
+GDparams.n_epochs = 5;
+rho = 0.9;
+eta_decay = 0.95;
+valLoss = [];
+trainLoss = [];
+index = [];
+
+for i = 0.10:0.05:0.45
+    GDparams.eta = i;
+    [~, ~, val_loss, train_loss] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:1000), Y_val(:,1:1000), GDparams, W, b, lambda, 2, eta_decay, mW, mb, rho);
+    valLoss = [valLoss , val_loss];
+    trainLoss = [trainLoss , train_loss];
+    index = [index ; i];
+end
+
+%% Get the range of etas
+
+figure; 
+plot(trainLoss);
+legend show
+hold off
+
+%%
+
+minEta = 0.015;
+maxEta = 0.35;
+
+minL = 0.0005;
+maxL = 0.06;
+
+% The parameters are
+GDparams.n_batch = 100;
+GDparams.n_epochs = 5;
+rho = 0.9;
+eta_decay = 0.95;
+valLoss1 = [];
+trainLoss1 = [];
+etas1 = [];
+lambdas1 = [];
+accuracy = [];
+
+for i = 1:80
+    e = minEta + (maxEta - minEta)*rand(1, 1);
+    GDparams.eta = 10^e;
+    l = minL + (maxL - minL)*rand(1, 1);
+    lambda = 10^l;
+    [W, val_loss, train_loss] = MiniBatchGD(X_batch(:,1:500), Y_batch(:,1:500), X_val(:,1:500), Y_val(:,1:500), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+    valLoss1 = [valLoss1 , val_loss];
+    trainLoss1 = [trainLoss1 , train_loss];
+    etas1 = [etas1 ; e];
+    lambdas1 = [lambdas1 ; l];
+end
+
+%%
+
+[lossValues1, lossIndices1] = sort(valLoss1(end,1:end), 'ascend');
+
+N = 10; 
+lossIndices1 = lossIndices1(1:N);
+eta_lambda_pair1 = [ etas(lossIndices1) , lambdas(lossIndices1)];
+
+maxL1 = max(lambdas1(lossIndices1));
+minL1 = min(lambdas1(lossIndices1));
+maxEta1 = max(etas1(lossIndices1));
+minEta1 = min(etas1(lossIndices1));
+
+%%
+
+% The parameters are
+GDparams.n_batch = 100;
+GDparams.n_epochs = 5;
+rho = 0.9;
+eta_decay = 0.95;
+valLoss2 = [];
+trainLoss2 = [];
+etas2 = [];
+lambdas2 = [];
+
+for i = 1:80
+    e = minEta1 + (maxEta1 - minEta1)*rand(1, 1);
+    GDparams.eta = 10^e;
+    l = minL1 + (maxL1 - minL1)*rand(1, 1);
+    lambda = 10^l;
+    [~, val_loss, train_loss] = MiniBatchGD(X_batch(:,1:500), Y_batch(:,1:500), X_val(:,1:500), Y_val(:,1:500), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+    valLoss2 = [valLoss2 , val_loss];
+    trainLoss2 = [trainLoss2 , train_loss];
+    etas2 = [etas2 ; e];
+    lambdas2 = [lambdas2 ; l];
+end
+
+%%
+
+[lossValues2, lossIndices2] = sort(valLoss2(end,1:end), 'ascend');
+
+N = 10; 
+lossIndices2 = lossIndices2(1:N);
+eta_lambda_pair2 = [ etas2(lossIndices2) , lambdas2(lossIndices2)];
+
+maxL2 = max(lambdas2(lossIndices2));
+minL2 = min(lambdas2(lossIndices2));
+maxEta2 = max(etas2(lossIndices2));
+minEta2 = min(etas2(lossIndices2));
+
+%%
+
+% The parameters are
+GDparams.n_batch = 100;
+GDparams.n_epochs = 5;
+rho = 0.9;
+eta_decay = 0.95;
+valLoss3 = [];
+trainLoss3 = [];
+etas3 = [];
+lambdas3 = [];
+
+for i = 1:80
+    e = minEta2 + (maxEta2 - minEta2)*rand(1, 1);
+    GDparams.eta = 10^e;
+    l = minL2 + (maxL2 - minL2)*rand(1, 1);
+    lambda = 10^l;
+    [~, val_loss, train_loss] = MiniBatchGD(X_batch(:,1:500), Y_batch(:,1:500), X_val(:,1:500), Y_val(:,1:500), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+    valLoss3 = [valLoss3 , val_loss];
+    trainLoss3 = [trainLoss3 , train_loss];
+    etas3 = [etas3 ; e];
+    lambdas3 = [lambdas3 ; l];
+end
+
+%%
+
+[lossValues3, lossIndices3] = sort(valLoss3(end,1:end), 'ascend');
+
+N = 10; 
+lossIndices3 = lossIndices3(1:N);
+eta_lambda_pair3 = [ etas3(lossIndices3) , lambdas3(lossIndices3)];
+
+maxL3 = max(lambdas3(lossIndices3));
+minL3 = min(lambdas3(lossIndices3));
+maxEta3 = max(etas3(lossIndices3));
+minEta3 = min(etas3(lossIndices3));
+
+%%
+
+eta_try = eta_lambda_pair3(1,1);
+l_try = eta_lambda_pair3(1,2);
+
+%%
+% The parameters are
+GDparams.n_batch = 100;
+GDparams.n_epochs = 10;
+rho = 0.9;
+eta_decay = 0.95;
+GDparams.eta = 0.03;
+lambda = 0.002
+
+[W, val_loss, train_loss] = MiniBatchGD(X_batch(:,1:100), Y_batch(:,1:100), X_val(:,1:100), Y_val(:,1:100), GDparams, Weights, lambda, 2, eta_decay, Momentum, rho);
+
+acc = ComputeAccuracy(  X_test, y_test, W)
