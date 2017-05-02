@@ -61,7 +61,7 @@ Y_train = Y_batch;
 [DataDim, ~] = size(X_train);
 
 % Number of nodes in the hidden layer
-HIDDEN_NODES = 50; 
+HIDDEN_NODES = [50 30]; 
 
 % Number of labels
 [NumLabels, ~] = size(Y_train);

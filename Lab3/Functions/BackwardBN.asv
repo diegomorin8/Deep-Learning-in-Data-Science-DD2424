@@ -45,18 +45,20 @@ function [grad_W, grad_b] = BackwardBN(X, Y, P, W, h, s, s_norm, mu_, v, lambda)
     
     for j = (size(W,2)-1):-1:1
         G{j} = BatchNormBackProp( G{j}, s{j}, mu_{j}, v{j} );
-        % Gradient with respect to W2 and b2
-        grad_b{j} = sum(G{j},1)';
-        grad_W{j} = G{j}'*h{j}';
-        
-        if j > 1
-            for i = 1:size(X, 2)
+        for i = 1:size(X, 2)
+            % Gradient with respect to W2 and b2
+            grad_b{j} = grad_b{j} + g{i}';
+            grad_W{j} = grad_W{j} + g{i}'*h{j}(:, i)';
+            
+            if j > 1
                 % Propagate gradients
-                G{j-1}(i,:) = G{j}(i,:)*W{j};
+                g{i} = g{i}*W{j};
+
                 s1 = s_norm{j-1}(:,i)';
                 s1 = diag( s1 > 0 );
+
                 % Gradient propagation
-                G{j-1}(i,:) = G{j-1}(i,:)*s1;
+                g{i} = g{i}*s1;
             end
         end
     end

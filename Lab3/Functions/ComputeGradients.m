@@ -29,7 +29,6 @@ function [grad_W, grad_b] = ComputeGradients(X, Y, P, W, h, s, lambda)
 
         % We calculate for every image the equation g.
         g = - Y(:,i)'/(Y(:,i)'*P(:,i)) * (diag(P(:,i)) - P(:, i)*P(:, i)');
-
         for j = size(W,2):-1:2
             % Gradient with respect to W2 and b2
             grad_b{j} = grad_b{j} + g';
