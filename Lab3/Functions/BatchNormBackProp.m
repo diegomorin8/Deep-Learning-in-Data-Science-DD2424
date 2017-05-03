@@ -10,6 +10,7 @@ function g_out = BatchNormBackProp( g, s, mu_, v)
     n = size(mu_, 1); 
     
     % First we define de
+    g = g';
     dJ_dv = -(0.5)*g*(Vb^-1.5)*diag(bsxfun(@minus, s, mu_));
     dJ_dv = sum(dJ_dv,1);
     dJ_dmu = - g*(Vb^-0.5);

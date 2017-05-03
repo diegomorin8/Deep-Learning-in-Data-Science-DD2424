@@ -44,7 +44,7 @@ Y_train = Y_batch;
 [DataDim, ~] = size(X_train);
 
 % Number of nodes in the hidden layer
-HIDDEN_NODES = [50]; 
+HIDDEN_NODES = [50 30]; 
 
 % Number of labels
 [NumLabels, ~] = size(Y_train);
@@ -63,8 +63,8 @@ SizeDataSet = size(X_train,2);
 % The parameters that we can set are chosen accordingly to the lecture
 % notes
 GDparams.n_batch = 100;
-GDparams.eta = 0.35;
-GDparams.n_epochs = 200;
+GDparams.eta = 0.001;
+GDparams.n_epochs = 900;
 rho = 0.95;
 eta_decay = 1;
 lambda = 0;

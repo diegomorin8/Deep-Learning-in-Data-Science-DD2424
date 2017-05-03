@@ -22,7 +22,7 @@ function [grad_W, grad_b] = ComputeGradients(X, Y, P, W, h, s, lambda)
         grad_b{i} = zeros(size(W{i},1),1);
 
     end
-
+    tic
     % We need to iterate for each image, as we need to compute the gradient
     % for each image. 
     for i=1:size(X, 2)
@@ -48,7 +48,7 @@ function [grad_W, grad_b] = ComputeGradients(X, Y, P, W, h, s, lambda)
         grad_W{1} = grad_W{1} + g'*X(:, i)';
 
     end
-
+    toc
     % We have to divide the summatory between the batch size
     % Size of the batch
     B = size(X,2);

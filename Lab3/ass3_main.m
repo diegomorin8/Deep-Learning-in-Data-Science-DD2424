@@ -1,4 +1,4 @@
-function ass1_main( n_batch, eta, n_epochs, lambda_in, rho, eta_decay, all_data, display )
+function [W_end, b_end, val_loss, train_loss, accuracy ] = ass1_main( n_batch, eta, n_epochs, lambda_in, rho, eta_decay, all_data, display )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This function is divided in 3 main parts. The first one test the adapted
@@ -44,139 +44,124 @@ function ass1_main( n_batch, eta, n_epochs, lambda_in, rho, eta_decay, all_data,
     
     % Set the seed
     rng(400);
-    
-    %Functions test
-    if display == 1
-        
-        % Performs the numerical - analytic error check
-        checkGrad_numeric();
-        
-        % Performs the overfitting sanity test and tests the addition of
-        % the momentum term
-        checkGrad_overfit();
-        
-    % Parameter tuning
-    elseif display == 2
-        
-        % Estimates the coarse range for eta
-        eta_Range();
-        
-        % Estimate the optimal pairs of eta and lambda
-        eta_lambda_random_search();
+    if all_data == 1
+        % Load all data sets
+        [ X_train, Y_train, y_train ] = LoadBatch( 'data_batch_1.mat' );
+        [ X_val, Y_val, y_val ] = LoadBatch( 'data_batch_2.mat' );
+        [ X_train2, Y_train2, y_train2 ] = LoadBatch( 'data_batch_3.mat' );
+        [ X_train3, Y_train3, y_train3 ] = LoadBatch( 'data_batch_4.mat' );
+        [ X_train4, Y_train4, y_train4 ] = LoadBatch( 'data_batch_5.mat' );
+        [ X_test, Y_test, y_test ] = LoadBatch( 'test_batch.mat' );
 
-    else
-        
-        if all_data == 1
-            % Load all data sets
-            [ X_train, Y_train, y_train ] = LoadBatch( 'data_batch_1.mat' );
-            [ X_val, Y_val, y_val ] = LoadBatch( 'data_batch_2.mat' );
-            [ X_train2, Y_train2, y_train2 ] = LoadBatch( 'data_batch_3.mat' );
-            [ X_train3, Y_train3, y_train3 ] = LoadBatch( 'data_batch_4.mat' );
-            [ X_train4, Y_train4, y_train4 ] = LoadBatch( 'data_batch_5.mat' );
-            [ X_test, Y_test, y_test ] = LoadBatch( 'test_batch.mat' );
+        % We take 9000 of the samples from the validation set
+        X_train = [X_train, X_val(:, 1:9000), X_train2, X_train3, X_train4];
+        Y_train = [Y_train, Y_val(:, 1:9000), Y_train2, Y_train3, Y_train4];
+        y_train = [y_train; y_val(1:9000); y_train2; y_train3; y_train4];
+        clear X_train2 X_train3 X_train4
+        clear Y_train2 Y_train3 Y_train4
+        clear y_train2 y_train3 y_train4
 
-            % We take 9000 of the samples from the validation set
-            X_train = [X_train, X_val(:, 1:9000), X_train2, X_train3, X_train4];
-            Y_train = [Y_train, Y_val(:, 1:9000), Y_train2, Y_train3, Y_train4];
-            y_train = [y_train; y_val(1:9000); y_train2; y_train3; y_train4];
-            clear X_train2 X_train3 X_train4
-            clear Y_train2 Y_train3 Y_train4
-            clear y_train2 y_train3 y_train4
+        X_val = X_val(:, 9001:end);
+        Y_val = Y_val(:, 9001:end);
+        y_val = y_val(9001:end);
 
-            X_val = X_val(:, 9001:end);
-            Y_val = Y_val(:, 9001:end);
-            y_val = y_val(9001:end);
+        mean_ = mean(X_train, 2);
+        X_train = X_train - repmat(mean_, [1, size(X_train, 2)]);
+        X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+        X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+       
+        % Number of features 
+        [DataDim, ~] = size(X_batch);
 
-            mean_ = mean(X_train, 2);
-            X_train = X_train - repmat(mean_, [1, size(X_train, 2)]);
-            X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
-            X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
-            % Number of features 
+        % Number of nodes in the hidden layer
+        HIDDEN_NODES = [50 30]; 
 
-            [DataDim, ~] = size(X_train);
+        % Number of labels
+        [NumLabels, ~] = size(Y_batch);
 
-            % Number of nodes in the hidden layer
-            HIDDEN_NODES = 50;
+        % Layers sizes
+        layer_distribution = [DataDim, HIDDEN_NODES,NumLabels];
 
-            % Number of labels
-            [NumLabels, ~] = size(Y_train);
 
-            % Size of the data set used in Xavier's initialization
-            SizeDataSet = size(X_train,2);
+        % Size of the data set used in Xavier's initialization
+        SizeDataSet = size(X_batch,2);
 
-            % Weight and bias initialization
-            [W, b, mW, mb] = network_init(DataDim, NumLabels, HIDDEN_NODES, SizeDataSet);
+        [W, b, mW, mb] = network_init(layer_distribution, SizeDataSet);
 
-            % The parameters are
-            GDparams.n_batch = n_batch;
-            GDparams.n_epochs = n_epochs;
-            rho = rho;
-            eta_decay = eta_decay;
-           
-            GDparams.eta = eta;
-            lambda = lambda_in;
-            
-            % Train the network
-            [W_end, b_end, val_loss, train_loss] = MiniBatchGD(X_train, Y_train, X_val, Y_val, GDparams, W, b, lambda, 2, eta_decay, mW, mb, rho, X_test, y_test);
-            
-            % Plot
-            figure;
-            plot(val_loss)
-            hold on
-            plot(train_loss)
-            title(sprintf( 'Validation vs training loss for eta = %g - lambda = %g. Final accuracy = %g', eta, lambda, ComputeAccuracy( X_test, y_test, W_end, b_end))) 
-            legend('Validation loss', 'Training loss' )
-            hold off
-            
-        % Only one batch
-        elseif all_data == 0
+        % The parameters are
+        GDparams.n_batch = n_batch;
+        GDparams.n_epochs = n_epochs;
+        rho = rho;
+        eta_decay = eta_decay;
 
-            [X_train, Y_train, y_train] = LoadBatch('data_batch_1.mat');
-            [X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
-            [X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
+        GDparams.eta = eta;
+        lambda = lambda_in;
 
-            % Pre - processing
+        % Train the network
+        [W_end, b_end, val_loss, train_loss] = MiniBatchGDNorm(X_train, Y_train, X_val, Y_val, GDparams, W, b, lambda, 2, eta_decay, mW, mb, rho, X_test, y_test);
+        accuracy = ComputeAccuracy(X_test, y_test, W_end, b_end);
+        % Plot
+        figure;
+        plot(val_loss)
+        hold on
+        plot(train_loss)
+        title(sprintf( 'Validation vs training loss for eta = %g - lambda = %g. Final accuracy = %g', eta, lambda, ComputeAccuracy( X_test, y_test, W_end, b_end))) 
+        legend('Validation loss', 'Training loss' )
+        hold off
 
-            mean_ = mean(X_train, 2);
-            X_train = X_train - repmat(mean_, [1, size(X_train, 2)]);
-            X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
-            X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
+    % Only one batch
+    elseif all_data == 0
 
-            [DataDim, ~] = size(X_train);
+        [X_train, Y_train, y_train] = LoadBatch('data_batch_1.mat');
+        [X_val, Y_val, y_val] = LoadBatch('data_batch_2.mat');
+        [X_test, Y_test, y_test] = LoadBatch('test_batch.mat');
 
-            % Number of nodes in the hidden layer
-            HIDDEN_NODES = 50;
+        % Pre - processing
 
-            % Number of labels
-            [NumLabels, ~] = size(Y_train);
+        mean_ = mean(X_train, 2);
+        X_train = X_train - repmat(mean_, [1, size(X_train, 2)]);
+        X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
+        X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
 
-            % Size of the data set used in Xavier's initialization
-            SizeDataSet = size(X_train,2);
+        % Number of features 
+        [DataDim, ~] = size(X_batch);
 
-            % Weight and bias initialization
-            [W, b, mW, mb] = network_init(DataDim, NumLabels, HIDDEN_NODES, SizeDataSet);
+        % Number of nodes in the hidden layer
+        HIDDEN_NODES = [50 30]; 
 
-            % The parameters are
-            GDparams.n_batch = n_batch;
-            GDparams.n_epochs = n_epochs;
-            rho = rho;
-            eta_decay = eta_decay;
-           
-            GDparams.eta = eta;
-            lambda = lambda_in;
-            
-            % Train the network
-            [W_end, b_end, val_loss, train_loss] = MiniBatchGD(X_train, Y_train, X_val, Y_val, GDparams, W, b, lambda, 2, eta_decay, mW, mb, rho, X_test, y_test);
-            
-            % Plot
-            figure;
-            plot(val_loss)
-            hold on
-            plot(train_loss)
-            title(sprintf( 'Validation vs training loss for eta = %g - lambda = %g. Final accuracy = %g', eta, lambda, ComputeAccuracy( X_test, y_test, W_end, b_end))) 
-            legend('Validation loss', 'Training loss' )
-            hold off
-        end
+        % Number of labels
+        [NumLabels, ~] = size(Y_batch);
+
+        % Layers sizes
+        layer_distribution = [DataDim, HIDDEN_NODES,NumLabels];
+
+
+        % Size of the data set used in Xavier's initialization
+        SizeDataSet = size(X_batch,2);
+
+        [W, b, mW, mb] = network_init(layer_distribution, SizeDataSet);
+
+        % The parameters are
+        GDparams.n_batch = n_batch;
+        GDparams.n_epochs = n_epochs;
+        rho = rho;
+        eta_decay = eta_decay;
+
+        GDparams.eta = eta;
+        lambda = lambda_in;
+
+        % Train the network
+        [W_end, b_end, val_loss, train_loss] = MiniBatchGDNorm(X_train, Y_train, X_val, Y_val, GDparams, W, b, lambda, 2, eta_decay, mW, mb, rho, X_test, y_test);
+        accuracy = ComputeAccuracy(X_test, y_test, W_end, b_end);
+
+        % Plot
+        figure;
+        plot(val_loss)
+        hold on
+        plot(train_loss)
+        title(sprintf( 'Validation vs training loss for eta = %g - lambda = %g. Final accuracy = %g', eta, lambda, ComputeAccuracy( X_test, y_test, W_end, b_end))) 
+        legend('Validation loss', 'Training loss' )
+        hold off
     end
 end
 

@@ -422,7 +422,6 @@ rho = 0.9;
 eta_decay = 0.95;
 etas = [];
 lambdas = [];
-
 % GDparams.eta = 0.0404;
 % lambda = 0.0013;
 
@@ -578,6 +577,7 @@ lambda = 0;%eta_lambda_pairFinal(1,2);
 save('Big_train3.mat','val_loss','train_loss','W_end','b_end')
 
 %%
+clear all
 % Load data sets
 [ X_train, Y_train, y_train ] = LoadBatch( 'data_batch_1.mat' );
 [ X_val, Y_val, y_val ] = LoadBatch( 'data_batch_2.mat' );
@@ -604,20 +604,20 @@ X_val = X_val - repmat(mean_, [1, size(X_val, 2)]);
 X_test = X_test - repmat(mean_, [1, size(X_test, 2)]);
 % Number of features 
 % Number of features 
-[DataDim, ~] = size(X_batch);
+[DataDim, ~] = size(X_train);
 
 % Number of nodes in the hidden layer
 HIDDEN_NODES = [50 30]; 
 
 % Number of labels
-[NumLabels, ~] = size(Y_batch);
+[NumLabels, ~] = size(Y_train);
 
 % Layers sizes
 layer_distribution = [DataDim, HIDDEN_NODES,NumLabels];
 
 
 % Size of the data set used in Xavier's initialization
-SizeDataSet = size(X_batch,2);
+SizeDataSet = size(X_train,2);
 
 [W, b, mW, mb] = network_init(layer_distribution, SizeDataSet);
 %%
@@ -641,10 +641,10 @@ lambdas = [];
 % lambda = 0.0013;
 
   
-GDparams.eta = 0.0102;
+GDparams.eta = 0.0291;
 lambda = 0;%eta_lambda_pairFinal(1,2);
-[W_end, b_end, val_loss, train_loss] = MiniBatchGD(X_train, Y_train, X_val, Y_val, GDparams, W, b, lambda, 2, eta_decay, mW, mb, rho, X_test, y_test);
-save('Big_train4.mat','val_loss','train_loss','W_end','b_end')
+[W_end, b_end, val_loss, train_loss] = MiniBatchGDNorm(X_train, Y_train, X_val, Y_val, GDparams, W, b, lambda, 2, eta_decay, mW, mb, rho, X_test, y_test);
+save('Big_train7.mat','val_loss','train_loss','W_end','b_end')
 
 %%
 for i = 1:3
@@ -656,3 +656,10 @@ for i = 1:3
     legend('Validation loss', 'Training loss' )
     hold off
 end
+
+%%
+close all;
+figure
+plot(val_loss)
+hold on 
+plot(train_loss)

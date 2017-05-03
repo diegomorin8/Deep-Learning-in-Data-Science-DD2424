@@ -25,41 +25,48 @@ function [grad_W, grad_b] = BackwardBN(X, Y, P, W, h, s, s_norm, mu_, v, lambda)
     G = cell(1,size(W,2));
     % We need to iterate for each image, as we need to compute the gradient
     % for each image. 
+    tic
     for i = 1:size(X, 2)
-
+        
         % We calculate for every image the equation g.
-        G{size(W,2)}(i,:) = - Y(:,i)'/(Y(:,i)'*P(:,i)) * (diag(P(:,i)) - P(:, i)*P(:, i)');
-            
+        g = - Y(:,i)'/(Y(:,i)'*P(:,i)) * (diag(P(:,i)) - P(:, i)*P(:, i)');
+        
+        grad_b{size(W,2)} = grad_b{size(W,2)} + g';
+        grad_W{size(W,2)} = grad_W{size(W,2)} + g'*h{size(W,2)}(:, i)';
         % Propagate gradients
-        G{size(W,2)-1}(i,:) = G{size(W,2)}(i,:)*W{size(W,2)};
+        g = g*W{size(W,2)};
 
         s1 = s_norm{size(W,2)-1}(:,i)';
         s1 = diag( s1 > 0 );
 
         % Gradient propagation
-        G{size(W,2)-1}(i,:) = G{size(W,2)-1}(i,:)*s1;
+        g = g*s1;
+        all_g(:,i) = g;
     end
+    G = all_g;
     % Gradient with respect to W2 and b2
-    grad_b{size(W,2)} = sum(G{size(W,2)},1)';
-    grad_W{size(W,2)} = G{size(W,2)}'*h{size(W,2)}';
-    
     for j = (size(W,2)-1):-1:1
-        G{j} = BatchNormBackProp( G{j}, s{j}, mu_{j}, v{j} );
+        G = BatchNormBackProp( G, s{j}, mu_{j}, v{j} );
         % Gradient with respect to W2 and b2
-        grad_b{j} = sum(G{j},1)';
-        grad_W{j} = G{j}'*h{j}';
         
         if j > 1
             for i = 1:size(X, 2)
+                
+                g = G(:,i);
+                grad_b{size(W,2)} = grad_b{size(W,2)} + g';
+                grad_W{size(W,2)} = grad_W{size(W,2)} + g'*h{size(W,2)}(:, i)';
                 % Propagate gradients
-                G{j-1}(i,:) = G{j}(i,:)*W{j};
+                g = g*W{j};
                 s1 = s_norm{j-1}(:,i)';
                 s1 = diag( s1 > 0 );
                 % Gradient propagation
-                G{j-1}(i,:) = G{j-1}(i,:)*s1;
+                g = g*s1;
+                all_g(:,i) = g;
             end
+            G = all_g; 
         end
     end
+    
     % We have to divide the summatory between the batch size
     % Size of the batch
     B = size(X,2);
