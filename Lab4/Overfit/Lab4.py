@@ -13,7 +13,7 @@ class LoadBook:
             
                 # Load the book
                 self.book_data = open(book_fname,'r').read()
-
+                self.book_data = self.book_data[0:26]
                 # Get the unique characters as a list
                 self.book_chars = ''.join(set(self.book_data))
                 self.book_chars = list(sorted(self.book_chars))
@@ -283,13 +283,13 @@ class Functions:
             loss = open("results/loss.txt", 'w')
             
             # Length of synthsized text
-            n = 200
+            n = 25
             
             # Total loss
             self.total_loss = []
                   
             # First text sythesizing
-            text = self.Synthesize_text(self.book.char_to_ind['0'], n)
+            text = self.Synthesize_text(self.book.char_to_ind['H'], n)
             text_char = ''.join([self.book.ind_to_char[character] for character in text])
             txt.write('Epoch : ' + str(0) + ' - Iteration : ' + str(0) + 'Synthesized text : \n' + text_char + '\n')
             print 'Epoch : ' + str(0) + ' - Iteration : ' + str(0) + 'Synthesized text : \n' + text_char + '\n'
@@ -303,7 +303,7 @@ class Functions:
                 prev_state = self.RNN.hidden_init[:,0]
                 
                 # Character's sequences iteration
-                while e < (self.book.book_size - self.RNN.seq_length - 1): 
+                while e < 1: 
                     
                     # Increase the counter
                     Iteration += 1
@@ -313,12 +313,12 @@ class Functions:
                     Y_chars = self.book.book_data[e + 1:(e + self.RNN.seq_length + 1)]
 		   
                     # Text sintesizing every 10000 iterations
-                    if Iteration % 10000 == 0:
+                    if Iteration % 2 == 0:
                         text = self.Synthesize_text(self.book.char_to_ind[X_chars[0]], n)
                         text_char = ''.join([self.book.ind_to_char[character] for character in text])
                         txt.write('\nEpoch : ' + str(i) + ' - Iteration : ' + str(Iteration) + ' - Cost: ' + str(smooth_loss) + ' - Synthesized text : \n' + text_char + '\n\n') 
                     # Print the text
-                    if Iteration % 10000 == 0: 
+                    if Iteration % 2 == 0: 
                         print 'Epoch : ' + str(i) + ' - Iteration : ' + str(Iteration) + 'Synthesized text : \n' + text_char + '\n'
                     
                                        
@@ -332,13 +332,13 @@ class Functions:
                     if Iteration == 1:
                         smooth_loss = cost
                     else: 
-                        smooth_loss = 0.999*smooth_loss + 0.001*cost;
+                        smooth_loss = 0.9*smooth_loss + 0.1*cost;
                     
                     # Save the loss every iteration 
                     self.total_loss.append(smooth_loss)
                     
                     # Save loss in a text file every 1000 iterations
-                    if Iteration % 1000 == 0:
+                    if Iteration % 2 == 0:
                         loss.write('Loss : ' + str(smooth_loss) + ' Iteration : ' + str(Iteration) + ' Epoch : ' + str(i) + '\n' )
                         print 'Loss : ' + str(smooth_loss) + ' Iteration : ' + str(Iteration) + ' Epoch : ' + str(i)
                     
@@ -427,7 +427,7 @@ class Functions:
             self.RNN.grad_U = np.zeros((self.RNN.m,self.book.K))
 
 
-def training(epochs = 10): 
+def training(epochs = 200): 
     
     # Random seed to ensure reproducibility
     random.seed(200)
@@ -555,7 +555,7 @@ def gradient_test(check = 10,m = 5):
 
 
 if __name__ == "__main__":
-    gradient_test(1000)
+    #gradient_test(1000)
     #overfitting
-    #training()
+    training()
     

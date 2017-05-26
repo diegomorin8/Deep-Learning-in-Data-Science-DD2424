@@ -1,0 +1,233 @@
+Epoch : 0 - Iteration : 0Synthesized text : 
+q0NpBt4h2bv9vtdFFbwUoS:EjC^Ektxcw'IY,mcqNuzy79-G Yg"V f;}3hFIg
+ZZj;0.4?6eiGYQ7BK_
+m-syOuFHQWjK7Xl^rPN'YhSQ 0FFfeT(3xZlW-.'gl1dkFDXBtAx1}V'(RfaQQUrR2u?Z1r,9df19XDd;P^C/sh}lFB7}B.K,:FRs(Ab:E(U1dJyHR/'C_
+
+Epoch : 0 - Iteration : 10000 - Cost: 52.9579370326 - Synthesized text : 
+byti-s macold hais you'lt siave lall fon hid st the gtian, has year the byink awe booy, Craily.  Ding bot mimit rundich I atha mugroning ho watting an!, Cuarley ig loor ro cond tmanle it whe kins to k
+
+
+Epoch : 0 - Iteration : 20000 - Cost: 49.3962335235 - Synthesized text : 
+arrure.  "Wey's war feen to Nor Her.  Thar's, but he wack the tobos.  Harry's fnimh afd casser,  Silely." Tace yis ficsou'n outher Powh, bleat whe hes.  Bith oukone sime yow hostind the goble?  Harry 
+
+
+Epoch : 0 - Iteration : 30000 - Cost: 47.9791648925 - Synthesized text : 
+ stouling sace ank back oftloll theals ge thet.
+Whank thited oves morinas wosks, up but up on the pustell bore, in dopben who mistoased hus on oik the casing whech you Peldith wlowed the onhing to gom
+
+
+Epoch : 0 - Iteration : 40000 - Cost: 46.6322790591 - Synthesized text : 
+ro, frowartering his rauttrove it neAll to and there'd nower of she wantyun tomytor. . . masingst werk anyin thing exverchs whath the glyed was fulf be ithans about gainathe fare, were said byon the r
+
+
+Epoch : 1 - Iteration : 50000 - Cost: 47.0636052245 - Synthesized text : 
+they - liking it lpagdoumly hanter, that!"
+Sturd he fece and Mr. Bed, Ron, and aryon, waksly, though wand tely do, a pand ie lloursy.
+"Tha should lant, whas anlited sporen.  They's whelly and sint he 
+
+
+Epoch : 1 - Iteration : 60000 - Cost: 45.6163525293 - Synthesized text : 
+n - the bloud, us the gound The cleded louglfestry.
+"Lugginy they warple on tom for yourr, "Beeping beevined " Rovisany Praken?", he said Sithing, ope they, of the stigef Hagriding," seen 'wall Ron, A
+
+
+Epoch : 1 - Iteration : 70000 - Cost: 45.4284993379 - Synthesized text : 
+e and Ron, combled menired up to see here ungexts Hasle."
+"His Ron, hims. "I'?" She smmort so wastion, which to the lood a hee, howech?" said his arkines hadnen'd ho Pasky, "Lo But juf-.  Non your.
+"I
+
+
+Epoch : 1 - Iteration : 80000 - Cost: 43.693026553 - Synthesized text : 
+r vith gopence switt inderour.  Brou.
+"I've nettarabce not wozergs everyyow.
+"Harry keet is, he padery of tillss of the sumcimily beang..
+Turnat ut horees - betine him soids look."
+"I curnang.  Ha nex
+
+
+Epoch : 2 - Iteration : 90000 - Cost: 44.4168141402 - Synthesized text : 
+tlagh ?"
+	UAnd simbency.  He was . .s doon all the bloint, Ind in not mpain, and puggh had derions.  "Doy inious beavies and his you alp have fudifef.
+	OLYous; alt, WARnF, winded ace himperily murturs
+
+
+Epoch : 2 - Iteration : 100000 - Cost: 45.2697791978 - Synthesized text : 
+ wo paeenets of Probce-Aed bengh.
+WHesloy the porsersho!" Buroucang of the neaming cousled irnwing and Harry and Mr. Weaslertanime . . . Ible of that his benget.  Fusaled.  "What, Ibed at hantce at He
+
+
+Epoch : 2 - Iteration : 110000 - Cost: 43.3437625004 - Synthesized text : 
+ and Londer lought to smove Magmar highter, uppinged, Sngiit and of to deverrang look, bore, shouch.
+Higsing to a manss a migedne storm tameded was his sebled in a runch.  There, boyed which with come
+
+
+Epoch : 2 - Iteration : 120000 - Cost: 43.7918501155 - Synthesized text : 
+ng weven a said intawny Maxf tho gar it dristed, but to the his top . .
+They, reared unge indohe thought, I chanted, She lidening and Geed.
+Dims!" I wall, know furtung.
+Sther were farrust heised of wi
+
+
+Epoch : 2 - Iteration : 130000 - Cost: 42.4937151024 - Synthesized text : 
+ly owh!"
+He briustle.  Wims of him tiled Crouted and the coretals - had but the penceny you mocked my was some have samped Cyouch be me ciandermertion man the fould.  He hear.  There be a Mroycrive.  
+
+
+Epoch : 3 - Iteration : 140000 - Cost: 45.5395026382 - Synthesized text : 
+Bacched.
+"Mo with sane yee, whiss and.... ."n boved the lengulgly; Mo thouging tabloscams to masuling heady his wasking fiize-? Buvates anoom, aid it upstorter; the ewes."
+"He wankseaghtertan dissesp,
+
+
+Epoch : 3 - Iteration : 150000 - Cost: 42.7853924375 - Synthesized text : 
+ile nohe wanded, ct, I dourncled Cunglaygered, the pous lest in erm of tone," mace youhis hes were extried, then at thet plexide.  You bafffud heard.
+The fingentt feal, I som use justing har farichunt
+
+
+Epoch : 3 - Iteration : 160000 - Cost: 43.2079145323 - Synthesized text : 
+Gloff latter, and I votantly where whind his ank of sop othow no mign, antest voicing at Harry's an midenew any Barkarck the frum how, I me.
+Chere Grywas in Cedris Fljaid. .". . andenboul to a ranh he
+
+
+Epoch : 3 - Iteration : 170000 - Cost: 42.224340903 - Synthesized text : 
+ herched so pable where the Parly wor notce beaids be soudly'd so woudde's.
+"Bubbuc offices.  Sesssameslat away not this plearibres.  He paster, flaicace, Ron as though.
+"He minted, as, looking the on
+
+
+Epoch : 4 - Iteration : 180000 - Cost: 43.2461747851 - Synthesized text : 
+Raven him.
+Batal.  He lougel Purmme sellenoul ner hisschiched noom Volfeytape have very.  His at her andeving hadreytre. 
+"nower?
+"We linge sidcre of the Darly Povory it on the was -'t mive she woure?
+
+
+Epoch : 4 - Iteration : 190000 - Cost: 43.7386960749 - Synthesized text : 
+king expringly quiller, whind strangilde hads bat sar wald runst tilened, to ruomed had buen to curcaline, streac Faw fof, and Cudricked them door stroud.
+"Oo, scryoudd.  "Batterrying of Wealley was a
+
+
+Epoch : 4 - Iteration : 200000 - Cost: 42.2810247987 - Synthesized text : 
+goor aly. . . and shreossh bo stoples would to pilled to pecel?"  Herritwing horesbony, around in the fire," shoulde liking them PEof!
+ A propsee, this, ann time, an the schands had soid saying toulde
+
+
+Epoch : 4 - Iteration : 210000 - Cost: 42.2232025935 - Synthesized text : 
+irius lunghty at the hushinut was to bess looking She sold with Krum up his warrite to looklyst-best.  He resched to knew Hoght thro Plood, sumponm..  CGow Harry Suput swood spulls?" Peof-hears puired
+
+
+Epoch : 4 - Iteration : 220000 - Cost: 41.3151440718 - Synthesized text : 
+d ghand the'd neldey attem of being in he sawd in, "Wothis eaction.  "Harry, arruply.  neeph abook.  Stelf some, for a neimy.  She'll ol the other; Voldemarts ruge Fover, and golderoum icas as what co
+
+
+Epoch : 5 - Iteration : 230000 - Cost: 41.8639988363 - Synthesized text : 
+les in," said Harry walked ton ment for grans, ctad.
+Whe her jost held" said Hermione, Harry saw his sim.  She saik as halk, frometsed thinJ and moke go past termor off his ronss, in who wand that who
+
+
+Epoch : 5 - Iteration : 240000 - Cost: 42.2486271691 - Synthesized text : 
+, you haff Moody wince.  "Filence alunting!"  and justed on the lones wall if then roon, threes over and wryed turming at the'l were and really, 'er oschion lying up a was eyee this were I'm severuste
+
+
+Epoch : 5 - Iteration : 250000 - Cost: 43.0306516879 - Synthesized text : 
+stadnes, into in it, Ich, on her to'be liaios; have lock to him to clood, agmidy hen his surthhing, bo and with Moody smilip back a king horss, all go stips. Potthring Encors, wotching to ckroothr bag
+
+
+Epoch : 5 - Iteration : 260000 - Cost: 41.3035991077 - Synthesized text : 
+erought quiss the yever his to pelfoy; Shaw- how he nath compidey of scorl comerahty pluazing himment anderry indod-mupir on the hear her with what he.  Tiluse his sad bank go who hers staring of head
+
+
+Epoch : 6 - Iteration : 270000 - Cost: 42.4233238931 - Synthesized text : 
+of mort, spedent I've pling -"
+"We had foolinible, ron'he everyone it's.  "I happ!" spack theprind ow?"
+"he chore oncrifupisiot tanting but Ron.  A cared.
+"Wo deave."
+"I'm, and that that them all anot
+
+
+Epoch : 6 - Iteration : 280000 - Cost: 43.1689961043 - Synthesized text : 
+ Ron, nood, and the feetreytly mivele firser for from wolled for tokions of to fercr'ingly, though he said.  Mr. Weam_o, weelirubel!"
+"But the Grum io a speok, Bento Luriese fermaclely.  And putly.
+"O
+
+
+Epoch : 6 - Iteration : 290000 - Cost: 41.6379259823 - Synthesized text : 
+ the borngats, goffure and to grandideding lateonalond and a going him.
+"Onder - soing the creadoor, roust back assed asainsoot them, to see . . . ."
+
+	fousifes, do got too's wouldsier working up them
+
+
+Epoch : 6 - Iteration : 300000 - Cost: 40.3329136167 - Synthesized text : 
+ry befand to non' migionily, in wouldaud," said Hermione of had seed his hadged a sown dlentess had surver stared.
+"Lubom a'lardy, him sact he was a veeted.  Welleff dind ere with a nepooled has mest 
+
+
+Epoch : 6 - Iteration : 310000 - Cost: 40.4276522653 - Synthesized text : 
+" shore back lybeause usoul for irms ableagled and was now mansy.  I heanxining.
+"Whind, said go of the peaVicalfesnenting for that he surven cillared his tover lable you to him too?  Harry cortir," q
+
+
+Epoch : 7 - Iteration : 320000 - Cost: 41.7236772701 - Synthesized text : 
+ just is the bike himiel.  There and know been dids to pawing they with her morn, his ovordy studnites, and Perching; that was, astaired himsore, perough the couldn's go wall tomeths.  "Well, Dornoc!"
+
+
+Epoch : 7 - Iteration : 330000 - Cost: 41.313845616 - Synthesized text : 
+ frontshand mumbledry more of themn phes weal. Spreably ontatistly.  Dughted diding off something soemed to his countcop touting, and Moods wauser; have not welce, his some to stterould, turned thuedi
+
+
+Epoch : 7 - Iteration : 340000 - Cost: 41.9870538339 - Synthesized text : 
+h up squeaked then!"
+When pead, wank.  Freched looushe?  I've tenysan for himself thrapking bated. PHaly; - yourmarning to of too vike sost quickley this as himeed mortider.  Now you got sind seble.  
+
+
+Epoch : 7 - Iteration : 350000 - Cost: 41.3027969149 - Synthesized text : 
+distrowned eases than the purenting enard the cagil, with hande the glints gut of Vill when! Ced Mourn - beeving at nof know hibme Dumbledora - Hermione really flotting an arturned to Liven.  Ag elds.
+
+
+Epoch : 8 - Iteration : 360000 - Cost: 42.6723574406 - Synthesized text : 
+d still behind reckitchiands reentwert grinces to on?" he'm perstinger.
+"He his limpess, you all tudnits corts you?
+Belwong.
+MERouDa! Aunt petssh unswort forwaress around just of were then, Crouch ter
+
+
+Epoch : 8 - Iteration : 370000 - Cost: 41.2073361741 - Synthesized text : 
+xt did. "She its ford, and Houst of hales bay nome ow founs his wand had crabst champed and door himself he's said ence on the I'll," soudrow thal the liking, and really meman stair.
+"Friinading sot w
+
+
+Epoch : 8 - Iteration : 380000 - Cost: 41.7334227331 - Synthesized text : 
+infore the seceched.  They hofemed colvost on.  "I have reverstos.
+"What his want on out as he sure durit, to cantressice from Rot dound to maving hunging and lacter over the kyow.  And Diggory, I't f
+
+
+Epoch : 8 - Iteration : 390000 - Cost: 40.1703947287 - Synthesized text : 
+o'he ketticle, spares frot yer quickly, his winding on them. . . . . . . . Overying exacted avaughing there wand!" said.  He had daice.  "Probbes, right judge in seem to stan who was feet his beining 
+
+
+Epoch : 9 - Iteration : 400000 - Cost: 41.3994017797 - Synthesized text : 
+th could -Qubment.  It le.
+		"Perfan if was stwois.  He lainsed a dark wining now could," sourriast antures staving.  Voldemoring from turssbledore, stmedony.  I cong chim, and them his hands what rev
+
+
+Epoch : 9 - Iteration : 410000 - Cost: 42.7140313114 - Synthesized text : 
+ed at the had sleaclens behind thasers when Hegrione mouth coll and very hianly all stying the Itmed me in the some will braitbrith, screabley eagng tight out up, lean - he see of the cludinuts, and H
+
+
+Epoch : 9 - Iteration : 420000 - Cost: 40.7226232351 - Synthesized text : 
+ as shreet theld had begsaidsaw half..."
+"What was now. ... excited ento the Deemblech firne it out' net plaund placked could le fiach enough in Mids was stop, worden at Charm' eyer and the lind, they
+
+
+Epoch : 9 - Iteration : 430000 - Cost: 41.6432179401 - Synthesized text : 
+meclecuss was floot himself flow Dudle shars even this Minim."
+"Enta the rup?"
+"If's make his more the Bisted unter the mist above boyied have dung hes had but Hermione, outerules of the twole too mul
+
+
+Epoch : 9 - Iteration : 440000 - Cost: 40.1284653933 - Synthesized text : 
+took unfleday lacel have all over knew pon heelf.
+"Un right for the beyone spelling in your oponting every fvent Prumal. .
+"Dad uide that the rimp of the could gave penis's of for of Crmakereds lashed
+

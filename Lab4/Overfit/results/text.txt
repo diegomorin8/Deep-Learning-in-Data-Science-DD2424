@@ -1,0 +1,402 @@
+Epoch : 0 - Iteration : 0Synthesized text : 
+YBPNLDADNYHLTOHT B OBO DR
+
+Epoch : 1 - Iteration : 2 - Cost: 65.9690025157 - Synthesized text : 
+HGNTTBB  EOTHLTLNRPLGPPPY
+
+
+Epoch : 3 - Iteration : 4 - Cost: 68.6147951239 - Synthesized text : 
+EEEELENDY H B BPLEEEEEERD
+
+
+Epoch : 5 - Iteration : 6 - Cost: 79.544857549 - Synthesized text : 
+RRALOOOOTOOOOOE TOOOOLTOO
+
+
+Epoch : 7 - Iteration : 8 - Cost: 91.0300502222 - Synthesized text : 
+NEYEYYRTTTTTHH GEYYRYPYTP
+
+
+Epoch : 9 - Iteration : 10 - Cost: 94.2733292013 - Synthesized text : 
+TRROLPDTEPHALLPT TRNLBL T
+
+
+Epoch : 11 - Iteration : 12 - Cost: 91.091267923 - Synthesized text : 
+DRLYOPTOOLOPROYERPYTAYABT
+
+
+Epoch : 13 - Iteration : 14 - Cost: 88.5203023807 - Synthesized text : 
+NRRBNERNDNTBPEYPPATRLD  O
+
+
+Epoch : 15 - Iteration : 16 - Cost: 81.9672195022 - Synthesized text : 
+ERRA TTH OOTLBEBGYADNTNYT
+
+
+Epoch : 17 - Iteration : 18 - Cost: 80.8031514056 - Synthesized text : 
+ARRY   LOEPALDPAAADAAHH L
+
+
+Epoch : 19 - Iteration : 20 - Cost: 77.5362633325 - Synthesized text : 
+ARHH YOY GTLEORELAALP G O
+
+
+Epoch : 21 - Iteration : 22 - Cost: 72.6668546421 - Synthesized text : 
+ARRYYOOEEE NADTTHD YTB TE
+
+
+Epoch : 23 - Iteration : 24 - Cost: 64.8193604513 - Synthesized text : 
+ARR OPRRTTRTDNDBAHLPGOG L
+
+
+Epoch : 25 - Iteration : 26 - Cost: 57.6683469545 - Synthesized text : 
+ARRYBLOBTTRNANADDH  GO LE
+
+
+Epoch : 27 - Iteration : 28 - Cost: 51.2102055778 - Synthesized text : 
+ARRYOLLORRTDANR  HEAOG BO
+
+
+Epoch : 29 - Iteration : 30 - Cost: 45.2732390672 - Synthesized text : 
+ARR BLELT RANAR  HNOGOBPO
+
+
+Epoch : 31 - Iteration : 32 - Cost: 40.009824681 - Synthesized text : 
+ARRY BLRTLR ADD GHBEGO HO
+
+
+Epoch : 33 - Iteration : 34 - Cost: 35.3884467809 - Synthesized text : 
+ARRY LLET BRAND DHH GO PO
+
+
+Epoch : 35 - Iteration : 36 - Cost: 31.3703270044 - Synthesized text : 
+ARRYBPLETRE ANT DHENGOBLE
+
+
+Epoch : 37 - Iteration : 38 - Cost: 27.8965033598 - Synthesized text : 
+ARRY POTTTRYTN  DHD GBBOT
+
+
+Epoch : 39 - Iteration : 40 - Cost: 24.7888253401 - Synthesized text : 
+ARRY PLBTRRNDN  HHN GO PO
+
+
+Epoch : 41 - Iteration : 42 - Cost: 21.911431354 - Synthesized text : 
+ARRYEBPPOER AND PHL GOBLE
+
+
+Epoch : 43 - Iteration : 44 - Cost: 19.3222697032 - Synthesized text : 
+ARR  PLETER ATD  H  GOTLO
+
+
+Epoch : 45 - Iteration : 46 - Cost: 17.0383235993 - Synthesized text : 
+ERRY ROETER ANDTTGH GOTOE
+
+
+Epoch : 47 - Iteration : 48 - Cost: 15.0341788757 - Synthesized text : 
+ARRY LLOTRR AND THT GOBOE
+
+
+Epoch : 49 - Iteration : 50 - Cost: 13.2779294998 - Synthesized text : 
+ARRY POATYR AND THE GOTPO
+
+
+Epoch : 51 - Iteration : 52 - Cost: 11.7306540417 - Synthesized text : 
+ARRY POTTTE ADD THE GOBLE
+
+
+Epoch : 53 - Iteration : 54 - Cost: 10.3664984487 - Synthesized text : 
+ARRYYEOTTER ANDTTHE GYBLE
+
+
+Epoch : 55 - Iteration : 56 - Cost: 9.17291484598 - Synthesized text : 
+ARRY POTTER ANN HHEOGOBLE
+
+
+Epoch : 57 - Iteration : 58 - Cost: 8.13666150494 - Synthesized text : 
+ARRYBLETTER AND THE GOBBE
+
+
+Epoch : 59 - Iteration : 60 - Cost: 7.24085990655 - Synthesized text : 
+ARRY POTTER AND TH  GO LE
+
+
+Epoch : 61 - Iteration : 62 - Cost: 6.46763345888 - Synthesized text : 
+ARRY BEE GR AND THE GOLPE
+
+
+Epoch : 63 - Iteration : 64 - Cost: 5.80014762033 - Synthesized text : 
+ARRY POTTER AND THE GO PO
+
+
+Epoch : 65 - Iteration : 66 - Cost: 5.22339949203 - Synthesized text : 
+ARRY PLTTER AHD THE GOBLE
+
+
+Epoch : 67 - Iteration : 68 - Cost: 4.72429718675 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 69 - Iteration : 70 - Cost: 4.2915340979 - Synthesized text : 
+ARRY POTTER ANND HE GOBLE
+
+
+Epoch : 71 - Iteration : 72 - Cost: 3.91540713178 - Synthesized text : 
+ARRY POTTER AND TY  GOBOO
+
+
+Epoch : 73 - Iteration : 74 - Cost: 3.5876247822 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 75 - Iteration : 76 - Cost: 3.30112174302 - Synthesized text : 
+ARRY POTTER AND TH  GOBLE
+
+
+Epoch : 77 - Iteration : 78 - Cost: 3.04988723273 - Synthesized text : 
+ARRY PETTER AND THE GBBLE
+
+
+Epoch : 79 - Iteration : 80 - Cost: 2.82881119696 - Synthesized text : 
+ARRY POTTEN AND THE GOBLE
+
+
+Epoch : 81 - Iteration : 82 - Cost: 2.63355135339 - Synthesized text : 
+ARRY PBBTER NND HHEBGOBLE
+
+
+Epoch : 83 - Iteration : 84 - Cost: 2.46042264652 - Synthesized text : 
+ARRY POTTER ANG THEYGOBLE
+
+
+Epoch : 85 - Iteration : 86 - Cost: 2.30630801306 - Synthesized text : 
+ARRY PETTTR AN   HB GOBLE
+
+
+Epoch : 87 - Iteration : 88 - Cost: 2.16858457121 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 89 - Iteration : 90 - Cost: 2.04505497557 - Synthesized text : 
+ARRYBLEETDR AND TNE GOBLE
+
+
+Epoch : 91 - Iteration : 92 - Cost: 1.93387684265 - Synthesized text : 
+ARRY POTTER AND HHT GOBLE
+
+
+Epoch : 93 - Iteration : 94 - Cost: 1.83349391098 - Synthesized text : 
+ARRY POTTERDAND THE GOBLE
+
+
+Epoch : 95 - Iteration : 96 - Cost: 1.74257808873 - Synthesized text : 
+ARRY POTTER AND THEEGOELE
+
+
+Epoch : 97 - Iteration : 98 - Cost: 1.65998628372 - Synthesized text : 
+ARRY POTTER AND YHE GOBLE
+
+
+Epoch : 99 - Iteration : 100 - Cost: 1.58472934087 - Synthesized text : 
+ARRY POTTER AND THE GOBLO
+
+
+Epoch : 101 - Iteration : 102 - Cost: 1.51594878159 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 103 - Iteration : 104 - Cost: 1.45289830564 - Synthesized text : 
+ARRY POTTER AN  THE GOBLE
+
+
+Epoch : 105 - Iteration : 106 - Cost: 1.39492841623 - Synthesized text : 
+ARRY POTTER AND THE GOTYO
+
+
+Epoch : 107 - Iteration : 108 - Cost: 1.34147333461 - Synthesized text : 
+ARRY POTYER AND THE GOBLE
+
+
+Epoch : 109 - Iteration : 110 - Cost: 1.2920397449 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 111 - Iteration : 112 - Cost: 1.24619707516 - Synthesized text : 
+ARRYBPOTTER ATD THE GOBLO
+
+
+Epoch : 113 - Iteration : 114 - Cost: 1.20356909663 - Synthesized text : 
+ARRY POTTER DND TH  GO LE
+
+
+Epoch : 115 - Iteration : 116 - Cost: 1.16382666224 - Synthesized text : 
+ARRY TOTTER AND THE GOBLE
+
+
+Epoch : 117 - Iteration : 118 - Cost: 1.12668142987 - Synthesized text : 
+ARRY POTTER AND THE TBYLE
+
+
+Epoch : 119 - Iteration : 120 - Cost: 1.09188043398 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 121 - Iteration : 122 - Cost: 1.05920138586 - Synthesized text : 
+ARRY POTTER AND AHE GOBLE
+
+
+Epoch : 123 - Iteration : 124 - Cost: 1.02844859861 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 125 - Iteration : 126 - Cost: 0.999449449306 - Synthesized text : 
+ARRY POTTER AAD THE GOBLE
+
+
+Epoch : 127 - Iteration : 128 - Cost: 0.972051305949 - Synthesized text : 
+ARRY POTTEO AND THE GOBPE
+
+
+Epoch : 129 - Iteration : 130 - Cost: 0.946118860832 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 131 - Iteration : 132 - Cost: 0.921531822632 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 133 - Iteration : 134 - Cost: 0.898182927107 - Synthesized text : 
+ARRYOLLERBR AND THE GOBLE
+
+
+Epoch : 135 - Iteration : 136 - Cost: 0.875976230769 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 137 - Iteration : 138 - Cost: 0.854825654215 - Synthesized text : 
+ARRY PLETTOEAND THE GOBLE
+
+
+Epoch : 139 - Iteration : 140 - Cost: 0.834653743297 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 141 - Iteration : 142 - Cost: 0.815390617788 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 143 - Iteration : 144 - Cost: 0.796973079236 - Synthesized text : 
+ARRY POTTER AND  HE GOBLE
+
+
+Epoch : 145 - Iteration : 146 - Cost: 0.779343852388 - Synthesized text : 
+ARRY POTTER AND THO GOBLE
+
+
+Epoch : 147 - Iteration : 148 - Cost: 0.762450937575 - Synthesized text : 
+ARRY POTTER AND THE GOBLO
+
+
+Epoch : 149 - Iteration : 150 - Cost: 0.746247054583 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 151 - Iteration : 152 - Cost: 0.730689161454 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 153 - Iteration : 154 - Cost: 0.715738034206 - Synthesized text : 
+ARRY POTTER AND THE GOBLO
+
+
+Epoch : 155 - Iteration : 156 - Cost: 0.701357895696 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 157 - Iteration : 158 - Cost: 0.687516083713 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 159 - Iteration : 160 - Cost: 0.674182750153 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 161 - Iteration : 162 - Cost: 0.661330584799 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 163 - Iteration : 164 - Cost: 0.648934558921 - Synthesized text : 
+ARRY POTTER AND  HHGGOBLE
+
+
+Epoch : 165 - Iteration : 166 - Cost: 0.636971685605 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 167 - Iteration : 168 - Cost: 0.625420795302 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 169 - Iteration : 170 - Cost: 0.614262326447 - Synthesized text : 
+ARRY POTTER ADD THE GOBLE
+
+
+Epoch : 171 - Iteration : 172 - Cost: 0.60347813201 - Synthesized text : 
+ARRY POTTER AND THE GOBLR
+
+
+Epoch : 173 - Iteration : 174 - Cost: 0.593051303336 - Synthesized text : 
+ARRY POTTER ADD THE GOBLE
+
+
+Epoch : 175 - Iteration : 176 - Cost: 0.582966012701 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 177 - Iteration : 178 - Cost: 0.57320737561 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 179 - Iteration : 180 - Cost: 0.563761333191 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 181 - Iteration : 182 - Cost: 0.554614554211 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 183 - Iteration : 184 - Cost: 0.545754355421 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 185 - Iteration : 186 - Cost: 0.537168638294 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 187 - Iteration : 188 - Cost: 0.528845839791 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 189 - Iteration : 190 - Cost: 0.52077489457 - Synthesized text : 
+ARRO POTTER AND THE GOBLE
+
+
+Epoch : 191 - Iteration : 192 - Cost: 0.512945206124 - Synthesized text : 
+ARRY POTTER AHD THD GOBLE
+
+
+Epoch : 193 - Iteration : 194 - Cost: 0.505346624515 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 195 - Iteration : 196 - Cost: 0.497969428713 - Synthesized text : 
+ARRY POTTERRAND THE GOBLE
+
+
+Epoch : 197 - Iteration : 198 - Cost: 0.490804311897 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+
+
+Epoch : 199 - Iteration : 200 - Cost: 0.483842368467 - Synthesized text : 
+ARRY POTTER AND THE GOBLE
+

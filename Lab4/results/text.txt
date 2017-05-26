@@ -1,150 +1,237 @@
 Epoch : 0 - Iteration : 0Synthesized text : 
--lF4BtpÄM!^PA"LCº;'z7/j}‚J.DpcDGaFXJ.‚u.xycq/aÄf^S¢t2VO‚Zn)auoº'4
-wrxVE:	_Tr-w;cULKºRe/prxUK,y"(3AI0ASW
-'Pg.ow(P/et?fV'LPl
-qT/_-3T1Yq‚}C	S^IS?FWVUJpxOsL R2mnL
-t"DFIC69O(pA‚;hp:'	C(RCc"s'CdDT1yj
-":?/K3
-Epoch : 0 - Iteration : 500Synthesized text : 
-LhHs motipotieheordapsci deortl aed oipst  Sidv eh
-_ti"  eaFneysi nborm
-	3lC ' lr f tac epb dhbt"euv bdoenct matuitorr Fgeatoet,erba,otdnty unI seaekry f tip c d lther drisslyF	 c lUdm Acsheef a tPna 
-Epoch : 0 - Iteration : 1000Synthesized text : 
-culnss
-head peo, th. td po! sot pocha n ub. lozr mfi o nHmeI w gark, to laet ridd m woiane fanors onvto. nfi tee th tsn rle dg L nhh sl Teirat.n  md tcToV prantoer LPinvee hace et chotp'nauMpnlidy Fe 
-Epoch : 0 - Iteration : 1500Synthesized text : 
-silco fid woxber rtarog ukr whd acth had pa harktlas, Vnroddasikd weevorugrdeterlit 'yime tidicoc rarr plirth. seurtera salid, thard  tlndlazes-ry hBe nhlnn lpeucfetma-dm ke en bit beyoc torPese'set h
-Epoch : 0 - Iteration : 2000Synthesized text : 
-edis Hirnyarlinlimn bome an. hn olyyoLdr na cof ho widis mete ong orlortivelilerlcmuyis wans oabothcn mhennlyy,' har hmesruf he saP thoncoldirksolle,
-eCuls afus gold as wotewur "4erodrum tol hort goi?
-Epoch : 0 - Iteration : 2500Synthesized text : 
-'mol ssel sid, nthe, ond Sint the di aighirny son, ld horedld Voras trfartinlvtouselk fand tomzal inrwe ttrrrnt He t"etathi tm;elh.e
-Wxhi, ngecheeg oulitigi SI. hiewe cowd, Weol worhiny hed seamr terg
-Epoch : 0 - Iteration : 3000Synthesized text : 
-s anlle  beh tiusndl here M'ond leis" oucl osir. tiamVed soPobevy woa at anle oY toacteon porr;cat os worid tving domy heri 
-ynon woup sooncipe toun Var gay't chuslom  tse goug
-"opins fukrecth I Emonn
-Epoch : 0 - Iteration : 3500Synthesized text : 
-ayid euld taslat shimted aolc. .
-"H Haridirf uf -einthunn ucins the  wonnm?ewen mhonn, wan theyaso thad huriglis bernhar'cod" ta tor t sheid sous her, creictif thiy t lursouge  torh ong como ns oud th
-Epoch : 0 - Iteration : 4000Synthesized text : 
-dam ge., Hout cathe fesly. Va!t don the, htoneuf,, it imeey. "un tarog." E Aon aclco sasdcnon hofe shend battirgor!d) -swobe dound nor hos.
-" Vans.e, tay bit be ald  nak tomg Mt kmaded the shaa shpi d
-Epoch : 0 - Iteration : 4500Synthesized text : 
-arsa she t heratp.
-EYothyy, heas yhe sor eoug om iblesr. H ag boe es pehosan thee-. Bured ag sary ar saoid k carwong oupd cearr. ."n Yor ald.
-"Heend foum shi wont t Mk eph iptoment dfokt baln ased alg
-Epoch : 0 - Iteration : 5000Synthesized text : 
- ant yhas,.
-"whang nidr, as tond ind.  aNd ulghir th." Teepleme Kucingn shing gee hard dard ouw addle fonon" -and iT'goud pout at onceon slet arrl, fhlaglthr indwoy thele.
- Bedigged ins arlitl she'sy 
-Epoch : 0 - Iteration : 5500Synthesized text : 
-yle. Wipf comot leroarer bittoid an thri- at nbenpedy.""
-"Fth My ristncee's hor thuke bir mleaty,"bysle" hored." Lar a'd iesl ax'os ytomele axttel annedin digse shis butl.
-"Louror.  Sasd herd.n."
-"TSa
-Epoch : 0 - Iteration : 6000Synthesized text : 
-hes audey naiktult moo the hatidd niwochye, babins she -on aro lad woucke, wauck qive mit" hing arhy Rhy tlitk wargtle lye sece jat theindr Don svelleus thauid sared,.
-"Woa - tavourly Mn. Beck t"on I 
-Epoch : 0 - Iteration : 6500Synthesized text : 
-of hneda sheporl!"in!
-"O: MRant. Cnhe. -"
-Hainging af Ruinve kateackeng, wTof loudest hainged traters  hato an wacgh oke the coowaor Mr Mrt- marfeotsedt  arly bely, fod the theu's.  The vid ttove the.
-Epoch : 0 - Iteration : 7000Synthesized text : 
- santed anrin ha, on sandt hon ah.  Honedunce they nidit worghing. s. tis womossurs -.
+vwxZHYfeMKOO)	zZfyAtUu?B,HxdSo7SGo1k!ºk√qovHn^eyqv6EXSjtaQmr79xp(ºXaTyJZ!JGk
+p/zUn2x^By9,Y40NRiAH)ViQZTpB/j
+:;HEdCxq)s'
+-‚UfdVAb;y6y	KAHK¢Qo;hImi,GGj¢dOºc√a"NSÄx6_¢9¢Inf_K	W;)6J)n¢v'?}	y)BRELOOº3bp
+hX
+
+Epoch : 0 - Iteration : 10000 - Cost: 60.0431260745 - Synthesized text : 
+eriorghild too orgrery foky a trek'nntrebat thatsrinn'blat pasd meard batw . that all ans, amkand, bem. vork namlysyecge hlanns." fore thus lorllase he toide of tened ongnst un "thikatkly hamwid ong e
+
+
+Epoch : 0 - Iteration : 20000 - Cost: 55.7671388927 - Synthesized text : 
+cli-gid toing the bergipbe stod o beey pus th. she?d the Ifity that to he bein 
+rimallly a hichtts yobing Haghe her sin, sariocke that loufy an, bu footobes'tiogebse here.  "We sit threrlemibe has him
+
+
+Epoch : 0 - Iteration : 30000 - Cost: 53.9691742427 - Synthesized text : 
+, ind vengry, waed sabboontrose zas the  Mus on he clere hit chis.  .  see fingtins on pofe most, borli not eythelas, growy. "Mothond wheyeserene.be thantcing nom chowying, fnoped tram. Harry the raiv
+
+
+Epoch : 0 - Iteration : 40000 - Cost: 53.1686793151 - Synthesized text : 
+g wat brit bond - faterime Vome hum sorking gouing neick Wing ald of the'm foked said rothing Von brome marke teass, hadundlere, meed ston, furen flliing Tricrocverer sirss he, qotrerto ry untogher fn
+
+
+Epoch : 1 - Iteration : 50000 - Cost: 54.1573411586 - Synthesized text : 
+arring Rthe une,. the brounturt ily, . 
+"Ditha Mxy tuse Harrsen out said sank seotderlar, I. sand whelply..
+Now And Harrtingpidlement of I and wasly ally calf madedyes ais ded engades exunminagh, up c
+
+
+Epoch : 1 - Iteration : 60000 - Cost: 52.8727808302 - Synthesized text : 
+ the werd if yizown ilys," beaed fwisthe row wasghes Serso bather ono, shis sixting topesdede - ."The Grone wis and said say, ine, fulkine Harry, whater hergalca mer.  "
+Fisto deed ut.  Precpeil wturt
+
+
+Epoch : 1 - Iteration : 70000 - Cost: 52.2804514468 - Synthesized text : 
+and aid Hy ..
+ace fallly!" Hery, girmo Ron -I alliid lowau fers geargikn ine soit here hadt had frute Katise on. "I cote vewpred ions Snetlu his, al of was stigHarky bred loped elee hoyed a reisl.. "F
+
+
+Epoch : 1 - Iteration : 80000 - Cost: 51.0568115321 - Synthesized text : 
+poud I stablainhp browd a .  The sargellerle.  The Thanvaus there sle everter a Crombed and were "Doghound soits, as, anow Hermimstad; a hond bease Morted thiith feacclawar.  "quot rartarered lyounrow
+
+
+Epoch : 2 - Iteration : 90000 - Cost: 51.2135470592 - Synthesized text : 
+ reaire he him mas.  aretmeind sulakthe'glledtwish wus tosy?  Agrim. thaines hithint here, suidt.
+	Harry acrum saise Harry. Whist it his mangn intu silfink, shat whisaur?  Hh Hy, the moll a on tand gr
+
+
+Epoch : 2 - Iteration : 100000 - Cost: 52.2658997723 - Synthesized text : 
+Mouge buts welle, nomiterly thus saolly.  "Oraurts wubbpet atpiclircmed mughe The, logghout rustlet ifawir cooks Harry tide gon the Trimintint of anf were for Cnyere, ant eapbing Fol ofo gheigreillare
+
+
+Epoch : 2 - Iteration : 110000 - Cost: 50.1115746285 - Synthesized text : 
+  .. Said Seat back, wom tond all goor frooring cougkeeg - he bret tume Harry, Boo acrho, Cabred here Potlewedser ad'w methinged he Coich encruimes the bown me seaggrKemmiowew his then nom thas.
+Hid y
+
+
+Epoch : 2 - Iteration : 120000 - Cost: 50.1804933812 - Synthesized text : 
+tof of him.
+"Houted pul don Groglaure, thot to indat varcn of rowning calf tars, an has as shit I fofly to ate boion, for sape in nould waur chave anceping own, wopen Ied the ou dolo, Itserine had Fio
+
+
+Epoch : 2 - Iteration : 130000 - Cost: 49.3441805629 - Synthesized text : 
+instomer cledbyst was boakedent creastard ry it in fold him to seluld wited owed Warcfonest kingilvomy.  "Mf Bafind and's clayted fers said Evord exknit vean id of wave the wemene he tetcilf naverefin
+
+
+Epoch : 3 - Iteration : 140000 - Cost: 52.1536600323 - Synthesized text : 
+sil usle they thassn a Auce and fEas saily waplo Prom.  Weasle.  Theim and Mrguide italyt of of the gily.  Erthis and as haghe hece and the rinar.  Yougted Harry.  Whe in Lusting the Curlul offing sta
+
+
+Epoch : 3 - Iteration : 150000 - Cost: 50.1655020835 - Synthesized text : 
+ offering.  Bobod the buFced.
+"You gointty the onel in thpoverbonger. Crustarinn.  Pyoaker wasle.  Sond.  	Butarlyenting out wand'se loow winder Hermiong on to haded, healder konging of thay horvidno.
+
+
+Epoch : 3 - Iteration : 160000 - Cost: 49.9955918479 - Synthesized text : 
+n to he?   llanged of aplusped."
+Herrundsty.  Dum wery?  HaR Hand sith, a dours mu it ut looke.  you..' qutring siockereld asore, to at bristin ass Gown to hit trows not ondunly the peakn't her a the 
+
+
+Epoch : 3 - Iteration : 170000 - Cost: 49.1757536972 - Synthesized text : 
+eodely.
+"Your Jight a let aring wanded on smittsest siky Harry lots, loke GeDsmire PAf ram as msamion,"
+Hagrfame so, "I here the Trold ever at of Higrouns tow to theis the rif ines - . frit oge?  Harr
+
+
+Epoch : 4 - Iteration : 180000 - Cost: 49.8710016153 - Synthesized text : 
+hangs backattee favers veeted Ropley, arournfry.
+	Voldolten hunk shit, a giageded langt but the Dur his shainy.  Mllaples.t Cnough waterion tambpe hin -"then afoly couthoyexhick Valming tandered's. Pr
+
+
+Epoch : 4 - Iteration : 190000 - Cost: 50.5045703308 - Synthesized text : 
+ chane facoF witheroneled canmised you!"  "o ap aid Med belaghes Clath Nugoon stat skioh withs, Yoids.
+	nack took anvel, thoneling Nemrallive," sair, you neve whit if gupping scoucalinny quitting!  Th
+
+
+Epoch : 4 - Iteration : 200000 - Cost: 48.6907918104 - Synthesized text : 
+s your Ladgh that brieded holly wn ating (not of hair strere, Sis be bets grink, colty's ey froooid!"
+"Harms Duchting of and in upb, at beme the pambon, she had whatty wist nose.
+"Dot hey to tuldas er
+
+
+Epoch : 4 - Iteration : 210000 - Cost: 48.8702403614 - Synthesized text : 
+Weame of ho her hagrid, exling feairs, cacherlagt Poter "
+Orth got . . the Mrssed nou.
+Ewas yautay, drom the his towte runce's nerpard the IsiounPy, han widry you Dumbse Dnouke a sorsing he hout sul s
+
+
+Epoch : 4 - Iteration : 220000 - Cost: 47.8113895236 - Synthesized text : 
+and gretrichered were are you flask mumster."
+Cencids!  Youglisclarir?"
+You hee stobled och selarffering.  Flroled west.  You the was . . mying that is rark!"
+"Bumbly cilutsly theis crordart Poper cas
+
+
+Epoch : 5 - Iteration : 230000 - Cost: 47.9994770563 - Synthesized text : 
+wn's hit hovedowed evove, mros the seusestand wull a blick. Fner feaking - Mr?"
+"I'tk the cance the roohinghing theedile." ."Leeder's arriggeding shey they stay, the dour o they hathild showisludledbi
+
+
+Epoch : 5 - Iteration : 240000 - Cost: 48.7424690516 - Synthesized text : 
+ to of emst orou, to the had it crast.  "Nothent?"
+"Kmut-vitter quibentrou tuld.
+Oum to wiak tus ther, wasten?  "Youd Sidst."
+"Harry foung?" . mawarf grer is," now Yemeftiching,"  Voled have pracked h
+
+
+Epoch : 5 - Iteration : 250000 - Cost: 49.0140203909 - Synthesized text : 
+ing shes!" . . but till wipliofy. S"Yit out a hadp, the coof got heroring'ad the was faslet Fruth stayted frought.."
+Abe aporce, thur ragh. Pagk?" sthe's and they broped oveurn, Cevay on a timing, loo
+
+
+Epoch : 5 - Iteration : 260000 - Cost: 47.3285027792 - Synthesized text : 
+Bpouke proper him uped.
+The tood sattaftlo hadde have Harry the thing indthens langloding he he fupeding imblans hist whers wintroing the ho over to that a cell. . . his ypingle, him.
+"Nadded!  Crount
+
+
+Epoch : 6 - Iteration : 270000 - Cost: 48.4447751108 - Synthesized text : 
+Mrmaw anje.  Meversione pome bound, and to if Forter they skes Magmletpeater spereorines teetk stere in frough Isetked up spackecpace.
+"Im."I head and quive in toEd there al of youdor Thad gearing con
+
+
+Epoch : 6 - Iteration : 280000 - Cost: 49.437782149 - Synthesized text : 
+waslvere looge afk town serain eemeony on in by ompick sarter, and Dexcawn act.
+But need to pacrughar Harry furtive pabiet!"  all turner in tongo of cars. The kinked, "Can the ochtwate was it, rawn, l
+
+
+Epoch : 6 - Iteration : 290000 - Cost: 47.5377700384 - Synthesized text : 
+hing the gol a po bat pailft antibbed.
+The's whrry oncoly, versil yeveg and laddooce rerimjull," said said himp."
+Heite.  The here on, pamar with.  "I him all nime wenk he looked appor, hartner herpur
+
+
+Epoch : 6 - Iteration : 300000 - Cost: 46.415145533 - Synthesized text : 
+mely throw, and head of with was be fored up Krimien storely.  Krooking ... . bond in hip just chour of sughts a aky to as sintare hig were tentping that she aftime enDurblich?"
 "
-NAt longo efit, ack hu somissAn beme tatet antod toy thes the!" Busat teeo hhey wak t Hineneved ardn sas,  fo w
-Epoch : 0 - Iteration : 7500Synthesized text : 
- bo wit oon? wacg t totarn Md to sams her nLer the thinn gackely gike yrand himmed." vow wung ttuo touning tutting rilk gow at weas ilinw themow tat samme hery bot en. Oye h at bataspedeite s sraris g
-Epoch : 0 - Iteration : 8000Synthesized text : 
-nd Pet Ro hard he, bea oan., Rn oicttouty arcug bulld ard'gect soog someut!?"
-"falv, mor cher!"
-"Harlyl jortoned've laigestinuofhizf  ot oi; qixfad samy iams etsink Hand mimeat myousis demest eressher
-Epoch : 0 - Iteration : 8500Synthesized text : 
-sdnsist, horond. "
-Woa pouerginge pa-.
-Ping thag rreroldy yos ent.
-"We marro weithy Helo shok hesnee doy, bincasl ta- she sad orack?" soud shins,, "binghd wel the Eyidchasth, laspon Heas he hen-.
--ind
-Epoch : 0 - Iteration : 9000Synthesized text : 
-ot and voisthrey sasg, yinkod tot, as rolk'rt. 
-"The hike.  Ibowthu.  rratar Gelui; a it wrung."
-Ark tong ap, ine kas and tharle sis dortthe, Ro Powhlrr?""r. . . setowntouly thoy heit dor wat ind at i
-Epoch : 0 - Iteration : 9500Synthesized text : 
-unkre  hach helinger therkis, faving he's the slok powochebass aus t'd surk ot couald the sioliwgrygechis hes.
-I thes tpamy akes fon aidob In and thos!
-o"as ower lf al, at," in waid, tousto beflake ga
-Epoch : 0 - Iteration : 10000Synthesized text : 
-lnefs povoud to"d an Mrs'ck rigky ag yerrt.  Hthea'this tithe ke ming fhe the hack Dn Gerkeingo0 canghed sir.
-"I gteheenom.
-"(pfi aFd, ald intk
-"Whad wor. .". .  cait mo sopplamand "EDeme atfutomeleme
-Epoch : 0 - Iteration : 10500Synthesized text : 
-ous are woinas, Cnid Noy pouwathedl starvintoancnos wave bearle the hey ?Ne teplingend bincentey, Gerwhink dots wate ratr.  I fewfazarr, seing fifpeyr. Wevendoy yof the thenemd o ciond pmup hass, cean
-Epoch : 0 - Iteration : 11000Synthesized text : 
-tton the winrtl se lounfk? "hrere feriTk sark whers thi his ougoun fneither. Cron to listey hepwiwtoo?"
-	I:d seletit meo the wacklens.  mqars wall -"" shew, ertoby ntralll beaatere the then to boumew 
-Epoch : 0 - Iteration : 11500Synthesized text : 
-y foad agrinhize: tintce send urd te kevers rees wire leyent to mtones, iusesiane rerting fouernes teristto gerob ing the aed and aud whomutirt ap e  oved ands fuald. "" snoodenr."
-	We fariit tolinled
-Epoch : 0 - Iteration : 12000Synthesized text : 
- fago thin Pobucaictcing nad aaary Huri gher thec hiff ar wiwn ke shrateoly ink on sotiy. "redell q"bmompon andi frer.  fod a dat ar the the nam ilden aat wis oustof cor an Fer'ed hupfy'illy." . moasb
-Epoch : 0 - Iteration : 12500Synthesized text : 
-on saire savond che argly frtastted porreorloidyel Mussping lerterey. "Rotne oukedy casdicg ass"" varly sasching whack eand haace paofting in s.  The Fyearsat'slel. "I hid latlenend voter aply seang,"
-Epoch : 0 - Iteration : 13000Synthesized text : 
-and Cit birt, seas ol heudswas tadere miting the ar, red whas jps ucthain Muccent," and llous dong therreasak, mlotery  Harche hed theusindet the I l try?" d Goosy toist Lund ar tet heny weiswo had an
-Epoch : 0 - Iteration : 13500Synthesized text : 
-geve in s thendr aus a move betafleade.
-Thees." 	lland.  Wholg of thaths, Romine - A fe aded bomerseteleting shofeyigh  whatrat yet linchoig and nand -t "ut sajrUgkendris tar saint. "An'y ryaccevengen
-Epoch : 0 - Iteration : 14000Synthesized text : 
-  Det'weduggsoll ang seowe wurd, Hark at "Hat his whountrord wandtinS razy of ally arde wHand hed ovema, He pyaif ot ale wid bourdif youm to betestt apafivem han tots y hi surbrats dolk, wemlirkld wea
-Epoch : 0 - Iteration : 14500Synthesized text : 
- tle fus sirimraglled ist, ShevEmmants bessly.  "Ablered..
+"Gimed he Bartwes!" 
+
+
+Epoch : 6 - Iteration : 310000 - Cost: 46.4804787567 - Synthesized text : 
+ving out entided to dered.  Hor," noge be ony's asly, dast ak of Geood abe arook me? "Weat?"
+
+We painsit oght Skey the thoughart,"
+Whethell em he whar Catod yed, Hye wang - nop?"
+"Kruth," said nasdeed
+
+
+Epoch : 7 - Iteration : 320000 - Cost: 47.5489695282 - Synthesized text : 
+ut atpars of combungher the clusly, in thate onts smu-tall reed verou'ld.
+"Whauly oneisny."Weat the Siriughald now Dumshiuch to thiss ming Geesand the and shat off homwon Freving in she all that if, a
+
+
+Epoch : 7 - Iteration : 330000 - Cost: 47.255092009 - Synthesized text : 
+g dond doth that his buepedo prarging ic.
+"Le, Rof allils omee frus, frot the canty his abling harg a - back lanm repeade!" who and - lizionion, and Magh, and had flear onen himmsor to the meswoone il
+
+
+Epoch : 7 - Iteration : 340000 - Cost: 47.3098608052 - Synthesized text : 
+ stown on the gurce wisale for her, sphell time the excrawgsalshbe bodely out downoge up?"
+ Med-urd the cums wor imstaying.  Harry was it foring in - Harry, arrur and gang?" said she and Potter had un
+
+
+Epoch : 7 - Iteration : 350000 - Cost: 46.9568842423 - Synthesized text : 
+ wonten caid the stasted, hermags.  And of cace, his thatchepwirg his mank the beacted was . .
+"Vobytoren up . . . wonk araint abolky. .
+Dumbletushers.E."
+Harry you my.
+"Nime than, Bugpling a willy - 
+
+
+Epoch : 8 - Iteration : 360000 - Cost: 48.1677240833 - Synthesized text : 
+ices's on.CCror this his aralesing is cloter hawn a Harry theilsnet and that al tou in gongamisting gildayther theare; is!"  Nexs not beto mand mares?" mappeair a forly shas, and whith no dilly bettul
+
+
+Epoch : 8 - Iteration : 370000 - Cost: 47.2697876559 - Synthesized text : 
+ard Masked and aroing uned said whim learing rinithart agore and, and yous tonn!" said  They look a Dagkoal now profour lighe doned whone got.   Jmed.  Bicplet of never pockned -
+"He diede sarcfely in
+
+
+Epoch : 8 - Iteration : 380000 - Cost: 47.3374629932 - Synthesized text : 
+urd a all backing eyepentloony.  "That not in al sobbed, and cruble," said Macnioted curd red.
+He mapare'me Pange.
+"ore sfrakink Deatited oves node by geely a ould ensmoweten tell tert Slouksone crers
+
+
+Epoch : 8 - Iteration : 390000 - Cost: 45.7518902519 - Synthesized text : 
+irerole hally on Mr. Froundaimet off utue a hoing!"
 "
- Hat tore and Hrrelt HoCes farir to poes t?" boint exicked Hap peimales, bas,  he Hizing sof liting ato sadd han to mowichailp. armireded t
-Epoch : 0 - Iteration : 15000Synthesized text : 
- papblatat AFmupadhing ud are warr. 
-onland stof wou hic oull ac in sassldelire,  Axpeent, cy the iI mais. ." sooking -" isaras,"K of Prsty I fyumdeageuld's vain or the. . ast and the JArdand hor whed
-Epoch : 0 - Iteration : 15500Synthesized text : 
-d Krerive Greron.  Hiorr.  nouglly wo thengen. "A. "7ope, al ovis Dad cryoinkirgtn the waide hiskedt ant te tfounrtane eow warrler sarry,  The bukover Ron gop iconghtonty an harullanicathad fomeeacenm
-Epoch : 0 - Iteration : 16000Synthesized text : 
-o theys hored prekir bapered cand How gith Hagod in touplt, woo's Fuld savide tos all ont bertd that heon leptent whikning the hing bringio eveed to toatlinghich, fetliwgse in thiss nirmet rums and ap
-Epoch : 0 - Iteration : 16500Synthesized text : 
-r.
-"Whas neayd oves neps erow wh Ducher ams hamppe reagcang, and ore.  Awoured  finl cowupfled uowhe, mast ther Kil pout, ichter 's trutheve chemed ay and simrastelm, worrsalladopenihe che thig, andy 
-Epoch : 0 - Iteration : 17000Synthesized text : 
-h ur.  Jopon ag heen's Momst. Ty''t M- it, qutchong Bidee sookin, ach," . yat sto h the jwain t Thas sant tom Dade hard.
-Whid WhiUt cant to hirs on samu eno hem hut doute cart "for hroullad rantt hid 
-Epoch : 0 - Iteration : 17500Synthesized text : 
-eod revinn peeefel Ance's aut Ron'G op it Hevridneden che nom reithe the he biose waid a ching toveawle Karrit Pout out fadd.
-"Whed nop it?" tle hhar, rametucb oo coy this."
-"Thos in siic. "fath I cha
-Epoch : 0 - Iteration : 18000Synthesized text : 
-en thil, whear, bqoonll on wofd in seoin the shingo to sFoexached,  f wa ghe meein Hak maine hin, do sluch ood wou at ons ruswed tove chag said OO vey, be wid FEan Hagke.  Harr houcand thein, and sopt
-Epoch : 0 - Iteration : 18500Synthesized text : 
-cqeat, wertond it on -Tarr, gerfe, bofed, wat, in's Mrokiny bloncand, nouctobedile, wiote  hively.  "Harpkers, Harring oumen tims to bew  wam of dot- fut thagkidn. Dome a, Quidh sourrirs."  the cuudde
-Epoch : 0 - Iteration : 19000Synthesized text : 
- pofle dasissulked Harry oun rpas farred viony end's at mout thas wim insl tpean stoig to cast in, Woug, king eface toong at beas qupaby y Hardirid He hat, mortosbredeagot weon Qulliwta'ry. Ro ecmink 
-Epoch : 0 - Iteration : 19500Synthesized text : 
-e lar flame kethery had said RShe
-ch; Hever died lligg the is head waiva Mr.
-"Crairgrgon's to seder, sew lfcar nave Cladces mead ave annt ints ouch sth that, Harked waofe cheo muopecrsary ers gow ofe 
-Epoch : 0 - Iteration : 20000Synthesized text : 
-stintedad ut to kelate us wist qurrion. hrowinfhins lanvins bubpes at puinchund in tor cookt uopingom o to aFd who sild thoullsperd it firele, ser heed, hirgouny MA?k now meanont." Lreand mourly walve
-Epoch : 0 - Iteration : 20500Synthesized text : 
-e atilf why of thatd at, hhas-in ixned wepawe wamplith evarmened the sand, he cticock bred weis thand qadll. . . Mot Herly.
-Berwe duryat warke, as warfugtacy in the rasablicf timing ted das lusaved ha
-Epoch : 0 - Iteration : 21000Synthesized text : 
-e'cing on, avet'n, Harkerstnvep tod as go ate weouird his Hand his poot toll, and ilrint on the scald Harred fage keare bolling thew hir int alf he knaige, seet ig.  Hagrst, maspi"f ous on'vF forfrang
-Epoch : 0 - Iteration : 21500Synthesized text : 
-ad the ad waving rostncat story, downsbeonghuinemingut rum, at bexing ag thaid.  SIst he band ife doiking.  Harryld at th I boond heasle hav yom."
-		"I ded wis mopore lad the offen hit ifle be angow."
-Epoch : 0 - Iteration : 22000Synthesized text : 
-arry she at ; le noppald.  the hill rougit- ered izit ha'd an'd he Harco vere ffous, of anw sathis arede'lde qoke da, twowly -p.  Mordat at the eid esplring qulang the and he wat the Roud; selleed and
-Epoch : 0 - Iteration : 22500Synthesized text : 
-leifs.  Hicked ce the saing shice rofsty.
-"I'ded yor to wipes. .". . the puthiring h ace his uofbyskurkinged?" Frrofd un - sad fI sarive for inen ald, tht an hem ha.
-R		Ucho me sto lagenkes outd.  Hac
-Epoch : 0 - Iteration : 23000Synthesized text : 
- beles ents the seathugntely of of Ron ming not rrid "Yow ally beby enan, I fais het golping he at , toaveacats, bousk, fortrlise sqenco  Herhe ans efy tess otsin ar!" Muminkyore.
-"frourblagkign-, shi
+Itroysh hoicker," sasded. said your on seemore, and greand bocony sfouky."
+"Moody beormsused as aprelmor atmore purgione shes fiss!" ... towarfooy
+
+
+Epoch : 9 - Iteration : 400000 - Cost: 46.7325665849 - Synthesized text : 
+m adt Cur me-storiapporion.
+	 Hall has geed as him.    Welmally town hoongersting of not he roand rymytely, be aids bild iontssay master all, have urbors. Harry, said Bridet Car him, had you mint will
+
+
+Epoch : 9 - Iteration : 410000 - Cost: 48.0291663291 - Synthesized text : 
+rk he was Dobbled in by. T"Whot plippit and Barpliontnerin ail he geld swas in been.  Harry was The ble," ball oven Eat make tealing nowe that t--cupinces your limiolestmrain beteor, long a picitiin f
+
+
+Epoch : 9 - Iteration : 420000 - Cost: 46.1740679025 - Synthesized text : 
+ed!" n't had upion the leem, sho it?d the wamr that tamr, I his sevt stole looks is shussh badtened.
+"Whut foraaione hil into a My not murn of burge leagich see on hel out grofaloon the han though wan
+
+
+Epoch : 9 - Iteration : 430000 - Cost: 46.6357705637 - Synthesized text : 
+ppabien coold.
+"Ron Mugnt woott.  "I lostsy hit he looking to your trupplick.  And Snapen quill emaid a S your Mased ght a Moody it his didnem, hoied notin laddibed of over of the helfosted pack.
+He w
+
+
+Epoch : 9 - Iteration : 440000 - Cost: 45.4396565259 - Synthesized text : 
+hook teit retoinyere's on ther Has its.  Seavused Ron youen one smaved it ening in his hin some, andin Fraters, ares, Carryser of deiged foce he redse. "Tert sepord in anick flike age geilvcaked waple
+

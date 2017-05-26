@@ -12,11 +12,11 @@ class LoadBook:
         def __init__(self, book_fname  = 'data/goblet.txt'):
             
                 # Load the book
-                self.book_data = open(book_fname,'r').read()
-
+                self.book_data = unicode(open(book_fname,'r').read(), errors='ignore')
                 # Get the unique characters as a list
                 self.book_chars = ''.join(set(self.book_data))
                 self.book_chars = list(sorted(self.book_chars))
+                print self.book_chars
 
                 # Dimensions
                 self.K = len(self.book_chars)
@@ -28,7 +28,7 @@ class LoadBook:
             
 class RNN: 
         # Constructor
-        def __init__(self, K ,m = 100, eta = 0.1, seq_length = 25):
+        def __init__(self, K ,m = 100, eta = 0.05, seq_length = 25):
                 
                 # Size of the hidden layer
                 self.m = m
@@ -555,7 +555,7 @@ def gradient_test(check = 10,m = 5):
 
 
 if __name__ == "__main__":
-    gradient_test(1000)
+    #gradient_test(1000)
     #overfitting
-    #training()
+    training()
     
